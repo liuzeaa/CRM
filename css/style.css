@@ -1,0 +1,153 @@
+/*页面初始化*/
+html {
+  font-size: 100px;
+}
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  font-family: "microsoft yahei";
+  color: #333;
+  background: #f4f5f6;
+}
+a,
+a:active,
+a:hover,
+a:visited,
+a:target {
+  color: #333;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+* {
+  box-sizing: border-box;
+}
+/*一些页面公用的方法*/
+/*style*/
+.Header {
+  height: 0.88rem;
+  background: #4FB1FE;
+}
+.Header .mui-title {
+  height: 0.88rem;
+  line-height: 0.88rem;
+  color: #fff;
+  font-size: 0.34rem;
+}
+.mui-bar-nav ~ .mui-content {
+  padding-top: 0.88rem;
+}
+.peopleinfo {
+  width: 100%;
+  height: 2.92rem;
+  border-bottom: 1px solid #EFEFEF;
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+}
+.peopleinfo .banner_img img {
+  height: 2.58rem;
+}
+.peopleinfo .info_bg {
+  height: 1.92rem;
+  background: #fff;
+  position: absolute;
+  width: 105%;
+  z-index: 1;
+  transform: rotate(-12deg);
+  -webkit-transform: rotate(-12deg);
+  bottom: -0.56rem;
+  left: 0rem;
+}
+.peopleinfo .info_wrap {
+  width: 100%;
+  height: 1.92rem;
+  position: absolute;
+  bottom: 0.01rem;
+  left: 0;
+  z-index: 2;
+}
+.peopleinfo .info_wrap .past {
+  width: 0.8rem;
+  height: 0.8rem;
+  background: #9bd4ff;
+  display: block;
+  border-radius: 50%;
+  position: absolute;
+  right: 0.3rem;
+  top: -0.25rem;
+  text-align: center;
+}
+.peopleinfo .info_wrap .past i {
+  font-size: 0.34rem;
+  color: #fff;
+  position: absolute;
+  left: 0.23rem;
+  top: -0.43rem;
+}
+.peopleinfo .info_wrap .mes {
+  margin-top: 0.5rem;
+  padding: 0 0.15rem;
+}
+.peopleinfo .info_wrap .mes .touxiang img {
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 0.03rem solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  overflow: hidden;
+}
+.peopleinfo .info_wrap .mes .touxiang p {
+  color: #333;
+  font-size: 0.3rem;
+  margin-top: 0.8rem;
+}
+.peopleinfo .info_wrap .mes .tongji {
+  width: 4rem;
+  margin-top: 0.32rem;
+}
+.peopleinfo .info_wrap .mes .tongji a {
+  width: 25%;
+  float: left;
+  display: block;
+  height: 0.65rem;
+  text-align: center;
+}
+.peopleinfo .info_wrap .mes .tongji a h2 {
+  font-size: 0.18rem;
+  color: #999999;
+  font-weight: normal;
+  line-height: 0.38rem;
+}
+.peopleinfo .info_wrap .mes .tongji a p {
+  color: #555555;
+  font-size: 0.4rem;
+}
+.enter {
+  width: 100%;
+  padding: 0.2rem 0px;
+  background: #fff;
+}
+.enter a {
+  width: 25%;
+  display: block;
+  float: left;
+  text-align: center;
+}
+.enter a .enter_icon {
+  width: 1rem;
+  height: 1rem;
+  background: #ccc;
+  display: inline-block;
+  border-radius: 50%;
+}
