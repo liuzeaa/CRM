@@ -1,5 +1,7 @@
 /*页面初始化*/
 html{font-size:100px;}
+*{padding:0;margin:0;}
+ul,ol,li{list-style: none;}
 html,body{overflow-x:hidden;width:100%;font-family: "microsoft yahei";color:@color-text;background: @color-bodybg;}
 a,a:active,a:hover,a:visited,a:target{color:@color-text}
 .fl{float:left;}
@@ -7,14 +9,17 @@ a,a:active,a:hover,a:visited,a:target{color:@color-text}
 .clearfix:after{content:"";display:block;height:0;clear:both;visibility:hidden;}
 *{box-sizing: border-box;}
 .mt20{margin-top: 0.2rem;}
+.ml20{margin-left: 0.2rem;}
+.mb20{margin-bottom: 0.2rem;}
+.mr20{margin-right: 0.2rem;}
 //在线图标库
 @font-face {
   font-family: 'iconfont';  /* project id："189211" */
-  src: url('//at.alicdn.com/t/font_bnrzm8ql9g22o6r.eot');
-  src: url('//at.alicdn.com/t/font_bnrzm8ql9g22o6r.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_bnrzm8ql9g22o6r.woff') format('woff'),
-  url('//at.alicdn.com/t/font_bnrzm8ql9g22o6r.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_bnrzm8ql9g22o6r.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_575hf9m0ol34ygb9.eot');
+  src: url('//at.alicdn.com/t/font_575hf9m0ol34ygb9.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_575hf9m0ol34ygb9.woff') format('woff'),
+  url('//at.alicdn.com/t/font_575hf9m0ol34ygb9.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_575hf9m0ol34ygb9.svg#iconfont') format('svg');
 }
 .iconfont {
   font-family:"iconfont" !important;
@@ -34,10 +39,16 @@ a,a:active,a:hover,a:visited,a:target{color:@color-text}
 @color-999:#999999;
 @color-555:#555555;
 @color-5d6e7a:#5d6e7a;
-.bggreen{background: #05c49d;}
+@color-ccc:#ccc;
+.bgqiangreen{background: #9ddc72;}
+.bggreen{background: #3ccdab;}
 .bgred{background: #fa676f;}
 .bgblue{background: #6cb1ff;}
 .bgorange{background: #ff9f4d;}
+.bgpink{background: #e098f8;}
+.textoverflow(){
+    overflow: hidden;text-overflow: ellipsis;white-space: nowrap;
+}
 .disb(@dis:block){
     display: @dis;
 }
@@ -49,14 +60,23 @@ a,a:active,a:hover,a:visited,a:target{color:@color-text}
     -webkit-transform: rotate(@rorate);
 }
 .position(@a:relative){position:@a;}
+
 /*style*/
 .Header{
-    height:0.88rem;background:@color-blue;
+    height:0.88rem;
     .mui-title{
         height:0.88rem;line-height: 0.88rem;color:@color-white;font-size:0.34rem;
     }
 }
+.mui-switch{height:0.3rem;border-width:0.02rem;}
+.mui-switch-mini{width:0.68rem;}
+.mui-switch .mui-switch-handle{width:0.28rem;height:0.28rem;left:-0.01rem;top:-0.01rem;}
+.mui-switch-mini.mui-active .mui-switch-handle{-webkit-transform: translate(0.38rem,0);
+    transform: translate(0.38rem,0);}
 .mui-bar-nav~.mui-content{padding-top:0.88rem;}
+.mui-bar .mui-title{left:0.88rem;right:0.88rem;}
+.mui-bar .mui-icon{font-size:0.38rem;padding-top:0.25rem;padding-bottom:0.25rem;color: @color-white;}
+.mui-bar-nav.mui-bar .mui-icon{padding-top:0.25rem;padding-bottom:0.25rem;}
 .peopleinfo{
     width:100%;
     height:2.92rem;
@@ -66,6 +86,7 @@ a,a:active,a:hover,a:visited,a:target{color:@color-text}
     .position();
     .banner_img{
         img{
+            width:100%;
             height:2.58rem;
         }
     }
@@ -130,7 +151,7 @@ a,a:active,a:hover,a:visited,a:target{color:@color-text}
     .shi{
         margin:0;list-style: none;padding:0.08rem 0.2rem;
         li{
-            padding:0.08rem 0rem;color:@color-5d6e7a;
+            padding:0.08rem 0rem;color:@color-5d6e7a;.textoverflow;font-size:0.26rem;line-height: 0.3rem;
         }
     }
     .otherapp{padding:0px 0.1rem;
@@ -144,5 +165,92 @@ a,a:active,a:hover,a:visited,a:target{color:@color-text}
             }
         }
     }
+}
+//工作计划
+.plan_lists{  
+    li{
+        list-style: none;
+        margin-top: 0.2rem;
+        padding:0.15rem 0.25rem;
+        background: @color-white;
+        border-bottom: 1px solid @color-border;border-top:1px solid @color-border;
+        .date_switch{
+            padding:0.1rem 0;
+            .date{
+                color:@color-5d6e7a;font-size:0.3rem;height:0.3rem;
+            } 
+        }
+        .plan_desc{
+            font-size:0.26rem;color:@color-555;line-height: 0.3rem;padding: 0.1rem 0;
+        }
+        .place_contact{
+           line-height: 0.3rem;padding: 0.1rem 0;
+           span{
+               font-size:0.24rem;color:@color-999;
+               i{
+                   font-size:0.25rem;color:@color-blue;
+               }
+           }
+        }
+    }
+}
+.mui-switch-green.mui-active{border-color: #3ccdab;
+    background-color: #3ccdab;}
+.header_button{
+    font-size:0.28rem;color:@color-white;
+    height:0.28rem;
+    margin: 0.3rem 0.15rem;
+}
+.section_module{
+    border-bottom: 0.01rem solid @color-border;
+    border-top: 0.01rem solid @color-border;
+    background: @color-white;
+}
+.mui-input-group {
+    padding:0rem 0.25rem;
+    .icon{
+        width:0.4rem;height:0.4rem;.radius(15px);display:block;float:left;margin-right: 0.15rem;line-height: 0.4rem;text-align: center;
+        .iconfont{
+            font-size:0.24rem;color:@color-white;
+        }
+    }
+    .input-row{
+        padding:0.2rem 0rem;height:0.8rem;border-bottom: 0.01rem solid @color-border;
+        label{
+            height:0.4rem;display: block;float:left;overflow: hidden;line-height: 0.4rem;font-size:0.28rem;color:@color-999;
+            .label{
+                width:1.55rem;display: block;float:left;
+            }
+        }
+        .input{
+            width:3.8rem;height:0.4rem;position:relative;padding:0rem 0.2rem;
+            .select{
+                text-align: right;
+            }
+            .text{
+                height:0.4rem;font-size:0.28rem;font-family: "microsoft yahei";color:@color-5d6e7a;padding:0;
+            }
+            .text[disabled=disabled]{
+                color:@color-ccc;
+            }
+            .iconfont{
+                font-size:0.25rem;position:absolute;right:0;top:0;line-height: 0.4rem;color:@color-ccc;
+            }
+        }
+    }
+    .row{
+        textarea{
+            height:1rem;padding:0.2rem 0px;font-size:0.26rem;color:@color-ccc;font-family: "microsoft yahei";
+        }
+    }
+    .remind{
+        .icon{
+            margin-top: 0.2rem;
+        }
+        .mui-switch{
+            margin: 0.05rem 0;
+        }
+    }
+    
 }
 

@@ -15,7 +15,7 @@
     
 </head>
 <body>
-	<header class="mui-bar mui-bar-nav Header">
+	<header class="mui-bar mui-bar-nav Header bgblue">
 	    <h1 class="mui-title">CRM</h1>
 	</header>
 	<div class="mui-content">
@@ -55,7 +55,7 @@
 	    	</div>
 	    </section>
 	    <section class="enter clearfix">
-	    	<a href="images/workplan.png">
+	    	<a href="WorkPlan/WorkPlan.html">
 	    		<img src="images/workplan.png" alt="" />
 	    		<p class="enter_name">工作计划</p>
 	    	</a>
@@ -78,6 +78,13 @@
 	    	</div>
 	    	<div class="module">
 	    		<ul class="shi">
+	    			<script type="text/template" id="todayshi_template">
+	    				<% $.each(result,function(index,item){ %>
+	    				<li>
+		    				<%= item.Title %>
+		    			</li>
+		    			<% }) %>
+	    			</script>
 	    			<li>
 	    				1.今天上午去北京航空航天大学查看现场设备
 	    			</li>
@@ -120,14 +127,27 @@
 	    	</div>
 	    </section>
 	</div>
+	<script type="text/javascript" src="js/ejs.min.js"></script>
 	<script>
 		mui.init({
-			swipeBack: false,
-			statusBarBackground: '#f7f7f7',
-			gestureConfig: {
-				doubletap: true
+			keyEventBind: {
+				backbutton: true  //启动back按键监听
 			}
 		});
+		mui(".enter").on('tap','a',function(){
+			var id = this.getAttribute('href');
+			var href=this.href;
+			mui.openWindow({
+				id:id,
+				url:this.href,
+				show:{
+			      autoShow:false
+			   	},
+			   	waiting: {
+					autoShow: false
+				}
+			})
+		})
 	</script>
 </body>
 </html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <title>工作计划</title>
+	    <link href="../css/mui.min.css" rel="stylesheet"/>
+	    <link rel="stylesheet/less" href="../css/style.less" />
+	    <script src="../js/less-2.5.3.min.js"></script>
+	    <script src="../js/zepto.min.js"></script>
+	    <script src="../js/mui.min.js"></script>
+	    <script src="../js/public.js"></script>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav Header bggreen">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">工作计划</h1>
+		    <a class="mui-icon mui-pull-right mui-icon-right-nav mui-icon mui-icon-plusempty" id="add"></a>
+		</header>
+		<div class="mui-content">
+		   	<ul class="plan_lists">
+		   		<li>
+		   			<div class="clearfix date_switch">
+		   				<div class="date fl">
+		   					2016年7月15日  上午10:00
+		   				</div>
+		   				<div class="mui-switch mui-switch-mini mui-active fr mui-switch-green">
+						  	<div class="mui-switch-handle"></div>
+						</div>
+		   			</div>
+		   			<div class="plan_desc">
+		   				今天上午去北京航空航天大学查看现场设备
+		   			</div>
+		   			<div class="place_contact clearfix">
+		   				<span class="place">
+		   					<i class="iconfont">&#xe68a;</i>
+		   					北京理工大学
+		   				</span>
+		   				<span class="contact">
+		   					<i class="iconfont">&#xe614;</i>
+		   					王山水（教务处主任）
+		   				</span>
+		   			</div>
+		   		</li>
+		   		<li>
+		   			<div class="clearfix date_switch">
+		   				<div class="date fl">
+		   					2016年7月14日  上午10:00
+		   				</div>
+		   				<div class="mui-switch mui-switch-mini mui-active fr mui-switch-green">
+						  	<div class="mui-switch-handle"></div>
+						</div>
+		   			</div>
+		   			<div class="plan_desc">
+		   				上午去北京航空航天大学查看现场设备，下午去北京航空航天大学查看现场设备
+		   			</div>
+		   			<div class="place_contact clearfix">
+		   				<span class="place">
+		   					<i class="iconfont">&#xe68a;</i>
+		   					北京理工大学
+		   				</span>
+		   				<span class="contact">
+		   					<i class="iconfont">&#xe614;</i>
+		   					王山水（教务处主任）
+		   				</span>
+		   			</div>
+		   		</li>
+		   		<li>
+		   			<div class="clearfix date_switch">
+		   				<div class="date fl">
+		   					016年7月12日  上午10:00
+		   				</div>
+		   				<div class="mui-switch mui-switch-mini fr mui-switch-green">
+						  	<div class="mui-switch-handle"></div>
+						</div>
+		   			</div>
+		   			<div class="plan_desc">
+		   				今天上午去北京航空航天大学查看现场设备
+		   			</div>
+		   			<div class="place_contact clearfix">
+		   				<span class="place">
+		   					<i class="iconfont">&#xe68a;</i>
+		   					北京理工大学
+		   				</span>
+		   				<span class="contact">
+		   					<i class="iconfont">&#xe614;</i>
+		   					王山水（教务处主任）
+		   				</span>
+		   			</div>
+		   		</li>
+		   	</ul>
+		</div>
+		<script type="text/javascript">
+			mui.init({
+				swipeBack:true //启用右滑关闭功能
+			});
+			document.querySelector('#add').addEventListener('tap',function(){
+				mui.openWindow({
+					url:'NewWorkPlan.html',
+					show:{
+				      autoShow:false
+				   	},
+				   	waiting: {
+						autoShow: false
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

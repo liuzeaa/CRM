@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <title>新增计划</title>
+	    <link href="../css/mui.min.css" rel="stylesheet"/>
+	    <link rel="stylesheet/less" href="../css/style.less" />
+	    <script src="../js/less-2.5.3.min.js"></script>
+	   
+	    <script src="../js/zepto.min.js"></script>
+	    <script src="../js/public.js"></script>
+	    
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav Header bggreen">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">新增计划</h1>
+		    <span class="mui-pull-right header_button">保存</span>
+		</header>
+		<div class="mui-content">
+		    <section class="section_module mt20">
+		    	<form class="mui-input-group">
+					<div class="input-row clearfix">
+						<label for="">
+							<span class="icon bgqiangreen">
+								<i class="iconfont">&#xe614;</i>
+							</span>
+							<span class="label">客户名称</span>
+						</label>
+						<div class="input fr">
+							<input type="text" name="" id="" value="" placeholder="北京建筑大学" class="text"/>
+							<i class="iconfont">&#xe64c;</i>
+						</div>
+					</div>
+					<div class="input-row clearfix">
+						<label for="">
+							<span class="icon bgblue">
+								<i class="iconfont">&#xe615;</i>
+							</span>
+							<span class="label">联系人</span>
+						</label>
+						<div class="input fr">
+							<input type="text" name="" id="" value="" disabled="disabled" class="text select" placeholder="请选择联系人"/>
+							<i class="iconfont">&#xe64c;</i>
+						</div>
+					</div>
+					<div class="input-row clearfix">
+						<label for="">
+							<span class="icon bgpink">
+								<i class="iconfont">&#xe620;</i>
+							</span>
+							联系人职务
+						</label>
+						<div class="input fr">
+							<input type="text" name="" id="" value="教务处主任" disabled="disabled" class="text"/>
+							
+						</div>
+					</div>
+				</form>
+		    </section>
+		    <section class="section_module mt20">
+		    	<form class="mui-input-group">
+		    		<div class="row">
+		    			<textarea id='question' class="mui-input-clear question" placeholder="输入计划内容"></textarea>
+		    		</div>
+		    		<input accept="image/*" type="file"/>
+	    		</form>
+	    	</section>
+	    	<section class="section_module mt20">
+	    		<div class="mui-input-group" >
+	    			<div class="clearfix remind">
+		    			<span class="icon bgqiangreen">
+							<i class="iconfont">&#xe620;</i>
+						</span>
+						<div class="fl">
+							<div class="input-row" style="width:5.35rem;">
+								<label for="">
+									<span class="label">提醒</span>
+								</label>
+								<div class="mui-switch mui-switch-mini mui-active fr mui-switch-green">
+								  	<div class="mui-switch-handle"></div>
+								</div>
+							</div>
+							<div class="input-row" style="width:5.35rem;">
+								<label for="">
+									<span class="label">提醒时间</span>
+								</label>
+								<div class="input fr">
+									<input type="text" name="" id="select_time"  value=""  class="text select" placeholder="请选择时间"/>
+									<i class="iconfont">&#xe64c;</i>
+								</div>
+							</div>
+						</div>
+					</div>
+	    		</div>
+	    	</section>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		 <script src="../js/jquery-1.9.1.min.js"></script>
+		<link href="../css/mobiscroll.custom-2.5.0.min.css" rel="stylesheet" type="text/css" />
+		<script src="../js/mobiscroll.custom-2.5.2.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			(function($) {
+				$.init();
+				
+			})(mui);
+		        
+		</script>
+		<script type="text/javascript">
+	    	$(function(){
+	        $("#select_time").mobiscroll().date();
+			var currYear = (new Date()).getFullYear();  
+	
+	      	//初始化日期控件
+			var opt = {
+				preset: 'datetime', //日期，可选：date\datetime\time\tree_list\image_text\select
+				theme: 'android-ics light', //皮肤样式，可选：default\android\android-ics light\android-ics\ios\jqm\sense-ui\wp light\wp
+				display: 'bottom', //显示方式 ，可选：modal\inline\bubble\top\bottom
+				mode: 'scroller', //日期选择模式，可选：scroller\clickpick\mixed
+				lang:'zh',
+				dateFormat: 'yyyy-mm-dd', // 日期格式
+				cancelText: '取消',//取消按钮名籍我
+				setText: '确定', //确认按钮名称
+				dateOrder: 'yyyymmdd', //面板中日期排列格式
+				dayText: '日', monthText: '月', yearText: '年', //面板中年月日文字
+				showNow: false,  
+           		nowText: "今",  
+            	startYear:currYear, //开始年份  
+            	endYear:currYear + 100, //结束年份  
+			};
+	        
+			$("#select_time").mobiscroll(opt);
+	    });
+	    </script>
+	</body>
+
+</html>
