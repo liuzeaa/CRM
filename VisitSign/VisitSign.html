@@ -7,6 +7,7 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	    <title>签到查看</title>
 	    <link href="../css/mui.min.css" rel="stylesheet"/>
+	     <link rel="stylesheet" href="../css/iconfont.css" />
 	    <link rel="stylesheet/less" href="../css/style.less" />
 	    <script src="../js/less-2.5.3.min.js"></script>
 	    <script src="../js/zepto.min.js"></script>
@@ -110,9 +111,9 @@
 			})();
 			document.querySelector('#time').addEventListener('tap',function(){
 				if($('#calendar').is(':hidden')){
-					$('#calendar').show();
+					$('#calendar').fadeIn();
 				}else{
-					$('#calendar').hide();
+					$('#calendar').fadeOut();
 				}
 			})
 			var now = new Date();
