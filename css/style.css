@@ -2,6 +2,15 @@
 html {
   font-size: 100px;
 }
+* {
+  padding: 0;
+  margin: 0;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
 html,
 body {
   overflow-x: hidden;
@@ -33,11 +42,54 @@ a:target {
 * {
   box-sizing: border-box;
 }
+.mt20 {
+  margin-top: 0.2rem;
+}
+.ml20 {
+  margin-left: 0.2rem;
+}
+.mb20 {
+  margin-bottom: 0.2rem;
+}
+.mr20 {
+  margin-right: 0.2rem;
+}
+@font-face {
+  font-family: 'iconfont';
+  /* project id："189211" */
+  src: url('//at.alicdn.com/t/font_575hf9m0ol34ygb9.eot');
+  src: url('//at.alicdn.com/t/font_575hf9m0ol34ygb9.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_575hf9m0ol34ygb9.woff') format('woff'), url('//at.alicdn.com/t/font_575hf9m0ol34ygb9.ttf') format('truetype'), url('//at.alicdn.com/t/font_575hf9m0ol34ygb9.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
 /*一些页面公用的方法*/
+.bgqiangreen {
+  background: #9ddc72;
+}
+.bggreen {
+  background: #3ccdab;
+}
+.bgred {
+  background: #fa676f;
+}
+.bgblue {
+  background: #6cb1ff;
+}
+.bgorange {
+  background: #ff9f4d;
+}
+.bgpink {
+  background: #e098f8;
+}
 /*style*/
 .Header {
   height: 0.88rem;
-  background: #4FB1FE;
 }
 .Header .mui-title {
   height: 0.88rem;
@@ -45,8 +97,39 @@ a:target {
   color: #fff;
   font-size: 0.34rem;
 }
+.mui-switch {
+  height: 0.3rem;
+  border-width: 0.02rem;
+}
+.mui-switch-mini {
+  width: 0.68rem;
+}
+.mui-switch .mui-switch-handle {
+  width: 0.28rem;
+  height: 0.28rem;
+  left: -0.01rem;
+  top: -0.01rem;
+}
+.mui-switch-mini.mui-active .mui-switch-handle {
+  -webkit-transform: translate(0.38rem, 0);
+  transform: translate(0.38rem, 0);
+}
 .mui-bar-nav ~ .mui-content {
   padding-top: 0.88rem;
+}
+.mui-bar .mui-title {
+  left: 0.88rem;
+  right: 0.88rem;
+}
+.mui-bar .mui-icon {
+  font-size: 0.38rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  color: #fff;
+}
+.mui-bar-nav.mui-bar .mui-icon {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 .peopleinfo {
   width: 100%;
@@ -57,6 +140,7 @@ a:target {
   position: relative;
 }
 .peopleinfo .banner_img img {
+  width: 100%;
   height: 2.58rem;
 }
 .peopleinfo .info_bg {
@@ -92,9 +176,7 @@ a:target {
 .peopleinfo .info_wrap .past i {
   font-size: 0.34rem;
   color: #fff;
-  position: absolute;
-  left: 0.23rem;
-  top: -0.43rem;
+  line-height: 0.8rem;
 }
 .peopleinfo .info_wrap .mes {
   margin-top: 0.5rem;
@@ -135,7 +217,6 @@ a:target {
 }
 .enter {
   width: 100%;
-  padding: 0.2rem 0px;
   background: #fff;
 }
 .enter a {
@@ -144,10 +225,187 @@ a:target {
   float: left;
   text-align: center;
 }
-.enter a .enter_icon {
+.enter a img {
   width: 1rem;
   height: 1rem;
-  background: #ccc;
   display: inline-block;
   border-radius: 50%;
+  margin: 0.2rem 0rem;
+}
+.enter a p {
+  margin-bottom: 0.2rem;
+  color: #5d6e7a;
+  font-size: 0.28rem;
+}
+.title {
+  height: 0.72rem;
+  border-top: 0.01rem solid #EFEFEF;
+  border-bottom: 0.01rem solid #EFEFEF;
+  background: #fff;
+  padding: 0rem 0.25rem;
+  line-height: 0.72rem;
+  font-size: 0.32rem;
+  color: #5d6e7a;
+}
+.title .iconfont {
+  font-size: 0.38rem;
+  margin-right: 0.15rem;
+  color: #4FB1FE;
+}
+.module {
+  background: #fff;
+}
+.module .shi {
+  margin: 0;
+  list-style: none;
+  padding: 0.08rem 0.2rem;
+}
+.module .shi li {
+  padding: 0.08rem 0rem;
+  color: #5d6e7a;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.26rem;
+  line-height: 0.3rem;
+}
+.module .otherapp {
+  padding: 0px 0.1rem;
+}
+.module .otherapp a {
+  width: 20%;
+  display: block;
+  float: left;
+  text-align: center;
+  padding: 0.3rem 0 0.2rem 0;
+}
+.module .otherapp a i {
+  font-size: 0.45rem;
+  display: inline-block;
+  height: 0.45rem;
+  color: #5d6e7a;
+}
+.module .otherapp a p {
+  margin-bottom: 0;
+  font-size: 0.26rem;
+  color: #5d6e7a;
+}
+.plan_lists li {
+  list-style: none;
+  margin-top: 0.2rem;
+  padding: 0.15rem 0.25rem;
+  background: #fff;
+  border-bottom: 1px solid #EFEFEF;
+  border-top: 1px solid #EFEFEF;
+}
+.plan_lists li .date_switch {
+  padding: 0.1rem 0;
+}
+.plan_lists li .date_switch .date {
+  color: #5d6e7a;
+  font-size: 0.3rem;
+  height: 0.3rem;
+}
+.plan_lists li .plan_desc {
+  font-size: 0.26rem;
+  color: #555555;
+  line-height: 0.3rem;
+  padding: 0.1rem 0;
+}
+.plan_lists li .place_contact {
+  line-height: 0.3rem;
+  padding: 0.1rem 0;
+}
+.plan_lists li .place_contact span {
+  font-size: 0.24rem;
+  color: #999999;
+}
+.plan_lists li .place_contact span i {
+  font-size: 0.25rem;
+  color: #4FB1FE;
+}
+.mui-switch-green.mui-active {
+  border-color: #3ccdab;
+  background-color: #3ccdab;
+}
+.header_button {
+  font-size: 0.28rem;
+  color: #fff;
+  height: 0.28rem;
+  margin: 0.3rem 0.15rem;
+}
+.section_module {
+  border-bottom: 0.01rem solid #EFEFEF;
+  border-top: 0.01rem solid #EFEFEF;
+  background: #fff;
+}
+.mui-input-group {
+  padding: 0rem 0.25rem;
+}
+.mui-input-group .icon {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 15px;
+  display: block;
+  margin-right: 0.15rem;
+  line-height: 0.4rem;
+  text-align: center;
+}
+.mui-input-group .icon .iconfont {
+  font-size: 0.24rem;
+  color: #fff;
+}
+.mui-input-group .input-row {
+  padding: 0.2rem 0rem;
+  height: 0.8rem;
+  border-bottom: 0.01rem solid #EFEFEF;
+}
+.mui-input-group .input-row label {
+  width: 1.55rem;
+  height: 0.4rem;
+  display: block;
+  overflow: hidden;
+  line-height: 0.4rem;
+  font-size: 0.28rem;
+  color: #999999;
+}
+.mui-input-group .input-row .input {
+  width: 3.8rem;
+  height: 0.4rem;
+  position: relative;
+  padding: 0rem 0.2rem;
+}
+.mui-input-group .input-row .input .select {
+  text-align: right;
+}
+.mui-input-group .input-row .input .text {
+  height: 0.4rem;
+  font-size: 0.28rem;
+  font-family: "microsoft yahei";
+  color: #5d6e7a;
+  padding: 0;
+}
+.mui-input-group .input-row .input .text[disabled=disabled] {
+  color: #ccc;
+}
+.mui-input-group .input-row .input .iconfont {
+  font-size: 0.25rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  line-height: 0.4rem;
+  color: #ccc;
+}
+.mui-input-group .row textarea {
+  height: 1rem;
+  padding: 0.2rem 0px;
+  font-size: 0.26rem;
+  color: #ccc;
+  font-family: "microsoft yahei";
+}
+.mui-input-group .remind .icon {
+  margin-top: 0.2rem;
+}
+.mui-input-group .remind .mui-switch {
+  margin: 0.05rem 0;
 }
