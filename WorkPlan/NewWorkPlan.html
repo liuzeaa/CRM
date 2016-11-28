@@ -112,7 +112,6 @@
 		</script>
 		<script type="text/javascript">
 	    	$(function(){
-	        $("#select_time").mobiscroll().date();
 				var currYear = (new Date()).getFullYear();  
 		      	//初始化日期控件
 				var opt = {
@@ -131,9 +130,8 @@
 	            	startYear:currYear, //开始年份  
 	            	endYear:currYear + 100, //结束年份  
 				};
-		        
 				$("#select_time").mobiscroll(opt);
-		    });
+			});
 	    </script>
 	</body>
 
