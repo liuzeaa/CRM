@@ -57,7 +57,7 @@
 	    		<img src="images/workplan.png" alt="" />
 	    		<p class="enter_name">工作计划</p>
 	    	</a>
-	    	<a href="">
+	    	<a href="VisitSign/VisitSign.html">
 	    		<img src="images/visitsign.png" alt="" />
 	    		<p class="enter_name">拜访签到</p>
 	    	</a>
@@ -132,7 +132,8 @@
 				backbutton: true  //启动back按键监听
 			}
 		});
-		mui(".enter").on('tap','a',function(){
+		
+		$('.enter').on('tap','a',function(){
 			var id = this.getAttribute('href');
 			var href=this.href;
 			mui.openWindow({

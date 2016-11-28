@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <title>签到查看</title>
+	    <link href="../css/mui.min.css" rel="stylesheet"/>
+	    <link rel="stylesheet/less" href="../css/style.less" />
+	    <script src="../js/less-2.5.3.min.js"></script>
+	    <script src="../js/zepto.min.js"></script>
+	    <script src="../js/mui.min.js"></script>
+	    <script src="../js/public.js"></script>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav Header bgred">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">签到查看</h1>
+		    <span class="mui-pull-right header_button">签到</span>
+		</header>
+		<div class="mui-content">
+		    <div class="calenter_tools bgred clearfix">
+		    	<div class="fl calbtn" id="prevbtn">前一天</div>
+		    	<div class="time_wrap fl">
+		    		<i class="iconfont">&#xe77f;</i>
+		    		<span id="time"></span>
+		    		<i class="iconfont" >&#xe61e;</i>
+		    	</div>
+		    	<div class=" fr calbtn" id="nextbtn">后一天</div>
+		    </div>
+		    <div id="calendar" style="display: none;"></div>
+		    <ul class="sign_lists">
+		    	<li>
+		    		<div class="clearfix">
+		    			<span class="school fl">海淀希望小学</span>
+		    			<span class="fr people">曲明明</span>
+		    		</div>
+		    		<div class="clearfix">
+		    			<span class="piancha">位置偏差：67米</span>
+		    			<span class="date">2016-11-17 12:40</span>
+		    		</div>
+		    	</li>
+		    </ul>
+		</div>
+		<link rel="stylesheet" type="text/css" href="../css/mobiscroll.custom-3.0.0-beta2.min.css"/>
+		<script src="../js/jquery-1.8.3.min.js"></script>
+		<script src="../js/mobiscroll.custom-3.0.0-beta2.min.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				swipeBack:true //启用右滑关闭功能
+			});
+			!(function(){
+				function getNowFormatDate(addDayCount) {  
+				  var day = new Date();  
+				  day.setDate(day.getDate() + addDayCount);  
+				  var Year = 0;   
+				  var Month = 0;   
+				  var Day = 0;   
+				  var CurrentDate = "";   
+				  // 初始化时间   
+				  Year = day.getFullYear();  
+				  Month = day.getMonth() + 1;   
+				  Day = day.getDate();   
+				  CurrentDate += Year;   
+				  if (Month >= 10 ) {  
+				    CurrentDate += Month;   
+				  } else {  
+				    CurrentDate += "0" + Month;   
+				  }  
+				  if (Day >= 10 ) {  
+				    CurrentDate += Day ;   
+				  } else {  
+				    CurrentDate += "0" + Day ;   
+				  }  
+				  return CurrentDate;   
+				}
+				var n =  0;
+				document.getElementById('time').innerHTML = getNowFormatDate(0);  
+				$('#prevbtn').on('click',function(){
+					n -= 1;  
+					// 将当前日期赋值给日期位置  
+				  	document.getElementById('time').innerHTML = getNowFormatDate(n);  
+				});
+				$('#nextbtn').on('click',function() {  
+  					n += 1;  
+				  	// 将当前日期赋值给日期位置  
+				  	document.getElementById('time').innerHTML = getNowFormatDate(n);  
+				})
+			})();
+			document.querySelector('#time').addEventListener('tap',function(){
+				if($('#calendar').is(':hidden')){
+					$('#calendar').show();
+				}else{
+					$('#calendar').hide();
+				}
+			})
+			var now = new Date();
+		    mobiscroll.calendar('#calendar', {
+		        display: 'inline',        // Specify display mode like: display: 'bottom' or omit setting to use default
+		        layout: 'liquid',         // More info about layout: https://docs.mobiscroll.com/3-0-0_beta6/javascript/calendar#!opt-layout
+		        theme: 'mobiscroll',      // Specify theme like: theme: 'ios' or omit setting to use default
+		        lang: 'zh',               // Specify language like: lang: 'pl' or omit setting to use default
+		        
+		        markedDisplay: 'bottom',  // More info about markedDisplay: https://docs.mobiscroll.com/3-0-0_beta6/javascript/calendar#!opt-markedDisplay
+		        marked: [{                // More info about marked: https://docs.mobiscroll.com/3-0-0_beta6/javascript/calendar#!opt-marked
+		            d: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 5),
+		            color: 'rgb(28, 161, 227)'
+		        }, {
+		            d: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 6),
+		            color: 'rgb(28, 161, 227)'
+		        }, {
+		            d: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 7),
+		            color: 'rgb(28, 161, 227)'
+		        }, {
+		            d: new Date(now.getFullYear(), now.getMonth() + 1, 15),
+		            color: 'rgb(28, 161, 227)'
+		        }, {
+		            d: '11/30',
+		            color: 'rgb(163, 0, 38)'
+		        }, {
+		            d: '5/23',
+		            color: 'rgb(163, 0, 38)'
+		        }, {
+		            d: '3/12',
+		            color: 'rgb(163, 0, 38)'
+		        }, {
+		            d: '14',
+		            color: 'rgb(204,204,0)'
+		        }, {
+		            d: 'w5',
+		            color: 'rgb(34, 139, 34)'
+		        }, {
+		            d: '1/1',
+		            color: 'rgb(250,104,0)'
+		        }, {
+		            d: '1/2',
+		            color: 'rgb(250,104,0)'
+		        }, {
+		            d: '6/4',
+		            color: 'rgb(250,104,0)'
+		        }, {
+		            d: '8/4',
+		            color: 'rgb(250,104,0)'
+		        }, {
+		            d: '12/25',
+		            color: 'rgb(250,104,0)'
+		        }, {
+		            d: '12/26',
+		            color: 'rgb(250,104,0)'
+		        }]
+		    });
+		</script>
+	</body>
+</html>

@@ -15,11 +15,11 @@ a,a:active,a:hover,a:visited,a:target{color:@color-text}
 //在线图标库
 @font-face {
   font-family: 'iconfont';  /* project id："189211" */
-  src: url('//at.alicdn.com/t/font_575hf9m0ol34ygb9.eot');
-  src: url('//at.alicdn.com/t/font_575hf9m0ol34ygb9.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_575hf9m0ol34ygb9.woff') format('woff'),
-  url('//at.alicdn.com/t/font_575hf9m0ol34ygb9.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_575hf9m0ol34ygb9.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.eot');
+  src: url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.woff') format('woff'),
+  url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.svg#iconfont') format('svg');
 }
 .iconfont {
   font-family:"iconfont" !important;
@@ -63,7 +63,7 @@ a,a:active,a:hover,a:visited,a:target{color:@color-text}
 
 /*style*/
 .Header{
-    height:0.88rem;
+    height:0.88rem;box-shadow: none;
     .mui-title{
         height:0.88rem;line-height: 0.88rem;color:@color-white;font-size:0.34rem;
     }
@@ -256,6 +256,35 @@ a,a:active,a:hover,a:visited,a:target{color:@color-text}
             }  
         }
         .wen{font-size:0.24rem;color:@color-ccc;line-height: 0.7rem;}
+        img{width:100%;}
     }
 }
-
+//拜访签到
+.calenter_tools{
+    height:0.75rem;width:100%;
+    .calbtn{
+        padding:0px 0.25rem;line-height: 0.75rem;color:@color-white;font-size:0.28rem;
+    }
+    .time_wrap{
+        width:3.72rem;padding:0px 0.25rem;line-height: 0.75rem;color:@color-white;text-align: center;
+        .iconfont{
+            font-size:0.28rem;padding:0px 0.15rem;
+        }
+        span{
+            font-size:0.28rem;color:@color-white;
+        }
+    }
+}
+.sign_lists li{
+    list-style: none;
+    margin-top: 0.2rem;
+    padding:0.15rem 0.25rem;
+    background: @color-white;
+    border-bottom: 1px solid @color-border;border-top:1px solid @color-border;
+    .school{
+        font-size:0.3rem;color:@color-5d6e7a;
+    }
+    .people{
+        font-size:0.26rem;color: @color-5d6e7a;
+    }
+}

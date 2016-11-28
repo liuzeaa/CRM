@@ -43,6 +43,7 @@
           //文件预览
           previewImage: function(file) {
             var gallery = doms.thumb;
+            var ary = [];
             var img = document.createElement("img");
             img.file = file;
             doms.thumb.html(img);
