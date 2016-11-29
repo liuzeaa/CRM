@@ -88,7 +88,8 @@
 			"js/public.js"
 		],
 		"refer": [
-			"index.html"
+			"index.html",
+			"VisitSign/Map.html"
 		]
 	},
 	"VisitSign/SelectClientele.html": {

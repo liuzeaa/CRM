@@ -8,12 +8,11 @@
 	    <title>签到查看</title>
 	    <link href="../css/mui.min.css" rel="stylesheet"/>
 	    <link rel="stylesheet" href="../css/iconfont.css" />
-	    <link rel="stylesheet" href="../css/style.css" />
-	    <!--<script src="../js/less-2.5.3.min.js"></script>-->
+	    <link rel="stylesheet/less" href="../css/style.less" />
+	    <script src="../js/less-2.5.3.min.js"></script>
 	    <script src="../js/mui.min.js"></script>
 	    <script src="../js/jquery-1.8.3.min.js"></script>
 		<script src="../js/public.js"></script>
-		
 	</head>
 	<body>
 		<header class="mui-bar mui-bar-nav Header bgred">
@@ -32,7 +31,7 @@
 		    	<div class=" fr calbtn" id="nextbtn">后一天</div>
 		    </div>
 		    <div style="padding-top: 0.75rem;">
-			    <div id="calendar" style="display: none;"></div>
+			    <div id="calendar" style="display: none"></div>
 			    <ul class="sign_lists">
 			    	<li>
 			    		<div class="clearfix">
@@ -68,11 +67,11 @@
 		    </div>
 		</div>
 		<link rel="stylesheet" type="text/css" href="../css/mobiscroll.custom-3.0.0-beta2.min.css"/>
-		
 		<script src="../js/mobiscroll.custom-3.0.0-beta2.min.js"></script>
 		<script type="text/javascript">
 			mui.init({
 				swipeBack:false, //启用右滑关闭功能
+				
 			});
 			var page = mui.preload({
 			    url:'Map.html',
@@ -118,7 +117,7 @@
 			})();
 			document.querySelector('.time_wrap').addEventListener('tap',function(){
 				if($('#calendar').is(':hidden')){
-					$('#calendar').slideDown().css({'width':'100%'});
+					$('#calendar').slideDown();
 					var now = new Date();
 				    mobiscroll.calendar('#calendar', {
 				        display: 'inline',        // Specify display mode like: display: 'bottom' or omit setting to use default

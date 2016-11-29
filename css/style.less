@@ -67,29 +67,15 @@ html,body{overflow-x:hidden;width:100%;font-family: "microsoft yahei";color:@col
 .position(@a:relative){position:@a;}
 
 /*style*/
+.mui-bar-nav~.mui-content .mui-pull-top-pocket{top:0;}
+.mui-scroll-wrapper{top:0.88rem;}
 .Header{
     height:0.88rem;box-shadow: none;
     .mui-title{
         height:0.88rem;line-height: 0.88rem;color:@color-white;font-size:0.34rem;
     }
 }
-.mui-switch {
-  height: 0.3rem;
-  border-width: 0.02rem;
-}
-.mui-switch-mini {
-  width: 0.68rem;
-}
-.mui-switch .mui-switch-handle {
-  width: 0.28rem;
-  height: 0.28rem;
-  left: -0.01rem;
-  top: -0.01rem;
-}
-.mui-switch-mini.mui-active .mui-switch-handle {
-  -webkit-transform: translate(0.38rem, 0);
-  transform: translate(0.38rem, 0);
-}
+
 .mui-bar-nav~.mui-content{padding-top:0.88rem;}
 .mui-bar .mui-title{left:0.88rem;right:0.88rem;}
 .mui-bar .mui-icon{font-size:0.38rem;padding-top:0.25rem;padding-bottom:0.25rem;color: @color-white;}
@@ -292,6 +278,7 @@ html,body{overflow-x:hidden;width:100%;font-family: "microsoft yahei";color:@col
         }
     }
 }
+#calendar{width:100%;}
 .sign_lists li{
     list-style: none;
     margin-top: 0.2rem;

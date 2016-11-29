@@ -276,7 +276,9 @@
 					"fonts/iconfont.woff",
 					"js/public.js"
 				],
-				"refer": [],
+				"refer": [
+					"VisitSign/Map.html"
+				],
 				"priority": 0
 			},
 			"VisitSign/SelectClientele.html": {

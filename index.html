@@ -8,8 +8,8 @@
     <title>首页</title>
     <link href="css/mui.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="css/iconfont.css" />
-    <link rel="stylesheet" href="css/style.css" />
-	<!--<script src="js/less-2.5.3.min.js"></script>-->
+    <link rel="stylesheet/less" href="css/style.less" />
+	<script src="js/less-2.5.3.min.js"></script>
     <script src="js/zepto.min.js"></script>
     <script src="js/mui.min.js"></script>
     <script src="js/public.js"></script> 
@@ -19,129 +19,150 @@
 	    <h1 class="mui-title">CRM</h1>
 	</header>
 	<div class="mui-content">
-	    <section class="peopleinfo">
-	    	<div class="banner_img">
-	    		<img src="images/banner.jpg"/>
-	    	</div>
-	    	<div class="info_bg"></div>
-	    	<div class="info_wrap">
-	    		<a href="" class="past">
-	    			<i class="iconfont">&#xe674;</i>
-	    		</a>
-	    		<div class="clearfix mes">
-	    			<div class="fl clearfix touxiang">
-		    			<img src="images/touxiang.png" class="fl"/>
-		    			<p class="fl">周丽红</p>
-		    		</div>
-		    		<div class="fl tongji">
-		    			<a href="">
-		    				<h2>新增客户</h2>
-		    				<p>3</p>
-		    			</a>
-		    			<a href="">
-		    				<h2>新增联系人</h2>
-		    				<p>10</p>
-		    			</a>
-		    			<a href="">
-		    				<h2>新增跟进</h2>
-		    				<p>21</p>
-		    			</a>
-		    			<a href="">
-		    				<h2>拜访次数</h2>
-		    				<p>6</p>
-		    			</a>
-		    		</div>
-	    		</div>
-	    	</div>
-	    </section>
-	    <section class="enter clearfix">
-	    	<a href="WorkPlan/WorkPlan.html">
-	    		<img src="images/workplan.png" alt="" />
-	    		<p class="enter_name">工作计划</p>
-	    	</a>
-	    	<a href="VisitSign/VisitSign.html">
-	    		<img src="images/visitsign.png" alt="" />
-	    		<p class="enter_name">拜访签到</p>
-	    	</a>
-	    	<a href="">
-	    		<img src="images/followuprecord.png" alt="" />
-	    		<p class="enter_name">跟进记录</p>
-	    	</a>
-	    	<a href="">
-	    		<img src="images/workreport.png" alt="" />
-	    		<p class="enter_name">工作报告</p>
-	    	</a>
-	    </section>
-	    <section class="todayshi mt20">
-	    	<div class="title">
-	    		<i class="iconfont">&#xe743;</i>今日事项
-	    	</div>
-	    	<div class="module">
-	    		<ul class="shi">
-	    			<script type="text/template" id="todayshi_template">
-	    				<% $.each(result,function(index,item){ %>
-	    				<li>
-		    				<%= item.Title %>
-		    			</li>
-		    			<% }) %>
-	    			</script>
-	    			<li>
-	    				1.今天上午去北京航空航天大学查看现场设备
-	    			</li>
-	    			<li>
-	    				2.北京市海淀区学院北京理工大学拜访张主任
-	    			</li>
-	    			<li>
-	    				3.您下午三点的会议别忘记哦
-	    			</li>
-	    		</ul>
-	    	</div>
-	    </section>
-	    <section class="todayshi mt20">
-	    	<div class="title">
-	    		<i class="iconfont">&#xe604;</i>其他应用
-	    	</div>
-	    	<div class="module clearfix">
-	    		<div class="otherapp">
-	    			<a href="">
-		    			<i class="iconfont">&#xe6f5;</i>
-		    			<p class="enter_name">客户信息</p>
-		    		</a>
-		    		<a href="">
-		    			<i class="iconfont">&#xe61d;</i>
-		    			<p class="enter_name">联系人</p>
-		    		</a>
-		    		<a href="">
-		    			<i class="iconfont">&#xe6c7;</i>
-		    			<p class="enter_name">遗忘提醒</p>
-		    		</a>
-		    		<a href="">
-		    			<i class="iconfont">&#xe645;</i>
-		    			<p class="enter_name">分享圈</p>
-		    		</a>
-		    		<a href="">
-		    			<i class="iconfont">&#xe61a;</i>
-		    			<p class="enter_name">销售简报</p>
-		    		</a>
-	    		</div>
-	    	</div>
-	    </section>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+			    <section class="peopleinfo">
+			    	<div class="banner_img">
+			    		<img src="images/banner.jpg"/>
+			    	</div>
+			    	<div class="info_bg"></div>
+			    	<div class="info_wrap">
+			    		<a href="" class="past">
+			    			<i class="iconfont">&#xe674;</i>
+			    		</a>
+			    		<div class="clearfix mes">
+			    			<div class="fl clearfix touxiang">
+				    			<img src="images/touxiang.png" class="fl"/>
+				    			<p class="fl">周丽红</p>
+				    		</div>
+				    		<div class="fl tongji">
+				    			<a href="">
+				    				<h2>新增客户</h2>
+				    				<p>3</p>
+				    			</a>
+				    			<a href="">
+				    				<h2>新增联系人</h2>
+				    				<p>10</p>
+				    			</a>
+				    			<a href="">
+				    				<h2>新增跟进</h2>
+				    				<p>21</p>
+				    			</a>
+				    			<a href="">
+				    				<h2>拜访次数</h2>
+				    				<p>6</p>
+				    			</a>
+				    		</div>
+			    		</div>
+			    	</div>
+			    </section>
+			    <section class="enter clearfix">
+			    	<a href="WorkPlan/WorkPlan.html">
+			    		<img src="images/workplan.png" alt="" />
+			    		<p class="enter_name">工作计划</p>
+			    	</a>
+			    	<a href="VisitSign/VisitSign.html">
+			    		<img src="images/visitsign.png" alt="" />
+			    		<p class="enter_name">拜访签到</p>
+			    	</a>
+			    	<a href="">
+			    		<img src="images/followuprecord.png" alt="" />
+			    		<p class="enter_name">跟进记录</p>
+			    	</a>
+			    	<a href="">
+			    		<img src="images/workreport.png" alt="" />
+			    		<p class="enter_name">工作报告</p>
+			    	</a>
+			    </section>
+			    <section class="todayshi mt20">
+			    	<div class="title">
+			    		<i class="iconfont">&#xe743;</i>今日事项
+			    	</div>
+			    	<div class="module">
+			    		<ul class="shi">
+			    			<script type="text/template" id="todayshi_template">
+			    				<% $.each(result,function(index,item){ %>
+			    				<li>
+				    				<%= item.Title %>
+				    			</li>
+				    			<% }) %>
+			    			</script>
+			    			<li>
+			    				1.今天上午去北京航空航天大学查看现场设备
+			    			</li>
+			    			<li>
+			    				2.北京市海淀区学院北京理工大学拜访张主任
+			    			</li>
+			    			<li>
+			    				3.您下午三点的会议别忘记哦
+			    			</li>
+			    		</ul>
+			    	</div>
+			    </section>
+			    <section class="todayshi mt20">
+			    	<div class="title">
+			    		<i class="iconfont">&#xe604;</i>其他应用
+			    	</div>
+			    	<div class="module clearfix">
+			    		<div class="otherapp">
+			    			<a href="">
+				    			<i class="iconfont">&#xe6f5;</i>
+				    			<p class="enter_name">客户信息</p>
+				    		</a>
+				    		<a href="">
+				    			<i class="iconfont">&#xe61d;</i>
+				    			<p class="enter_name">联系人</p>
+				    		</a>
+				    		<a href="">
+				    			<i class="iconfont">&#xe6c7;</i>
+				    			<p class="enter_name">遗忘提醒</p>
+				    		</a>
+				    		<a href="">
+				    			<i class="iconfont">&#xe645;</i>
+				    			<p class="enter_name">分享圈</p>
+				    		</a>
+				    		<a href="">
+				    			<i class="iconfont">&#xe61a;</i>
+				    			<p class="enter_name">销售简报</p>
+				    		</a>
+			    		</div>
+			    	</div>
+			    </section>
+			</div>
+		</div>
 	</div>
 	<script type="text/javascript" src="js/ejs.min.js"></script>
 	<script>
 		mui.init({
 			keyEventBind: {
 				backbutton: true  //启动back按键监听
+			},
+			pullRefresh: {
+				container: '#pullrefresh',
+				down: {
+					height:55,
+					auto: false,//可选,默认false.自动下拉刷新一次
+			      	contentdown : "下拉可以刷新",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+			      	contentover : "释放立即刷新",//可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
+			      	contentrefresh : "正在刷新...",//可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+					callback: pulldownRefresh
+				}
 			}
 		});
-		var page1 = mui.preload({
-		    url:'/WorkPlan/WorkPlan.html',
-			id:'WorkPlan.html'
-		});
-		var page2 = mui.preload({
-		    url:'/VisitSign/VisitSign.html',
-			id:'VisitSign.html'
-		});
+		function pulldownRefresh() {
+			setTimeout(function() {
+				window.location.reload();
+				
+				mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+			}, 1500);
+		}
+		if (mui.os.plus) {
+			mui.plusReady(function() {
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().pullupLoading();
+				}, 1000);
+			});
+		} 
 		$('.enter').on('tap','a',function(){
 			var id = this.getAttribute('href');
 			var href=this.href;
