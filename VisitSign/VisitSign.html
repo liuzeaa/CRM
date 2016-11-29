@@ -71,12 +71,16 @@
 		<script type="text/javascript">
 			mui.init({
 				swipeBack:false, //启用右滑关闭功能
-				preloadPages:[
+				/*preloadPages:[
 				    {
 				      url:'Map.html',
 				      id:'Map.html'
 				    }
-				]
+				]*/
+			});
+			var page = mui.preload({
+			    url:'Map.html',
+				id:'Map.html'
 			});
 			!(function(){
 				function getNowFormatDate(addDayCount) {  
