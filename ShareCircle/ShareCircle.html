@@ -6,21 +6,76 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	    <title>首页</title>
-	    <link href="css/mui.min.css" rel="stylesheet"/>
-	    <link rel="stylesheet" href="css/iconfont.css" />
-	    <link rel="stylesheet/less" href="css/style.less" />
-		<script src="js/less-2.5.3.min.js"></script>
-	    <script src="js/zepto.min.js"></script>
-	    <script src="js/mui.min.js"></script>
-	    <script src="js/public.js"></script> 
+	    <link href="../css/mui.min.css" rel="stylesheet"/>
+	    <link rel="stylesheet" href="../css/iconfont.css" />
+	    <link rel="stylesheet/less" href="../css/style.less" />
+		<script src="../js/less-2.5.3.min.js"></script>
+	    <script src="../js/zepto.min.js"></script>
+	    <script src="../js/public.js"></script> 
 	</head>
 	<body>
 		<header class="mui-bar mui-bar-nav Header bgblue">
 		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		    <h1 class="mui-title">分享圈</h1>
 		</header>
+		<div class="mui-content">
+		    <ul class="mes_lists">
+				<li>
+					<div class="mes_wrap clearfix">
+						<div class="people_img fl">
+							<img src="../images/people_img.jpg"/>
+						</div>
+						<div class="mes_deta fr">
+							<div class="clearfix a">
+								<span class="people fl">姚腾宇</span>
+								<span class="time fr">2016-11-12</span>
+							</div>
+							<div class="content">
+								计划工作的第六步是选定方案。这是在前五步工作的基础上，作出的关键一步，也是决策的实质性阶段
+							</div>
+							<div class="img_wrap">
+								<div class="img clearfix">
+									<span>
+										<img src="../images/1.jpg" alt="" data-preview-src="" data-preview-group="1"/>
+									</span>
+									<span>
+										<img src="../images/2.jpg" alt="" data-preview-src="" data-preview-group="1"/>
+									</span>
+								</div>
+								<span class="number">5</span>
+							</div>
+							<p class="p1"><i class="iconfont">&#xe61d;</i>客户：北京清华大学</p>
+							<div class="clearfix">
+								<p class="p1 fl"><i class="iconfont">&#xe615;</i>联系人：张学良</p>
+								<div class="fr">
+									<div class="iconfont">&#xe608;</div>
+									<div class="iconfont">&#xe638;</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.zoom.js"></script>
+		<script src="../js/mui.previewimage.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init({
+				keyEventBind: {
+					backbutton: true  //启动back按键监听
+				}
+			});
+			mui.previewImage();
+			window.onload=function(){
+				//从服务器获取数据
+				mui.plusReady(function(){
+				    //关闭等待框
+				    plus.nativeUI.closeWaiting();
+				    //显示当前页面
+				    mui.currentWebview.show();
+				  });
+			}
 		</script>
 	</body>
 

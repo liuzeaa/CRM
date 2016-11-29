@@ -13,12 +13,12 @@ html,body{overflow-x:hidden;width:100%;font-family: "microsoft yahei";color:@col
 .mr20{margin-right: 0.2rem;}
 //在线图标库
 @font-face {
-  font-family: 'iconfont';  
-  src: url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.eot');
-  src: url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.woff') format('woff'),
-  url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.svg#iconfont') format('svg');
+  font-family: 'iconfont';  /* project id："189211" */
+  src: url('//at.alicdn.com/t/font_vt8oy9o3l86hto6r.eot');
+  src: url('//at.alicdn.com/t/font_vt8oy9o3l86hto6r.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_vt8oy9o3l86hto6r.woff') format('woff'),
+  url('//at.alicdn.com/t/font_vt8oy9o3l86hto6r.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_vt8oy9o3l86hto6r.svg#iconfont') format('svg');
 }
 .iconfont {
   font-family:"iconfont" !important;
@@ -67,8 +67,6 @@ html,body{overflow-x:hidden;width:100%;font-family: "microsoft yahei";color:@col
 .position(@a:relative){position:@a;}
 
 /*style*/
-.mui-bar-nav~.mui-content .mui-pull-top-pocket{top:0;}
-.mui-scroll-wrapper{top:0.88rem;}
 .Header{
     height:0.88rem;box-shadow: none;
     .mui-title{
@@ -326,5 +324,200 @@ html,body{overflow-x:hidden;width:100%;font-family: "microsoft yahei";color:@col
     }
     i{
         .position(absolute);width:0.4rem;height:0.4rem;line-height:0.4rem;font-size:0.4rem;color:@color-999;right:0.4rem;top:0.3rem;
+    }
+}
+//分享圈
+//点击图片预览
+.mui-preview-image.mui-fullscreen {
+    position: fixed;
+    z-index: 20;
+    background-color: #000;
+}
+.mui-preview-header,
+.mui-preview-footer {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    z-index: 10;
+}
+.mui-preview-header {
+    height: 44px;
+    top: 0;
+}
+.mui-preview-footer {
+    height: 50px;
+    bottom: 0px;
+}
+.mui-preview-header .mui-preview-indicator {
+    display: block;
+    line-height: 25px;
+    color: #fff;
+    text-align: center;
+    margin: 15px auto 4;
+    width: 70px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    font-size: 16px;
+}
+.mui-preview-image {
+    display: none;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.mui-preview-image.mui-preview-in {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+.mui-preview-image.mui-preview-out {
+    background: none;
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+}
+.mui-preview-image.mui-preview-out .mui-preview-header,
+.mui-preview-image.mui-preview-out .mui-preview-footer {
+    display: none;
+}
+.mui-zoom-scroller {
+    position: absolute;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    -webkit-backface-visibility: hidden;
+}
+.mui-zoom {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.mui-slider .mui-slider-group .mui-slider-item img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+    width: 100%;
+}
+.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+    display: inline-table;
+}
+.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+    display: table-cell;
+    vertical-align: middle;
+}
+.mui-preview-loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.mui-preview-loading.mui-active {
+    display: block;
+}
+.mui-preview-loading .mui-spinner-white {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    height: 50px;
+    width: 50px;
+}
+.mui-preview-image img.mui-transitioning {
+    -webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+p img {
+    max-width: 100%;
+    height: auto;
+}
+.mes_lists{
+    li{
+        padding:0px 0.25rem;border-top:0.01rem solid @color-border;border-bottom:0.01rem solid @color-border;background: #fff;margin-top: 0.2rem;
+        .mes_wrap{
+            padding:0.25rem 0px;border-bottom: 0.01rem solid @color-border;
+            .people_img{
+                width:0.7rem;height:0.7rem;.radius(50%);border:0.02rem solid #E0EDFF;overflow: hidden;
+                img{width:100%;}
+            }
+            .mes_deta{
+                width:5rem;
+                .a{
+                    height:0.44rem;line-height: 0.44rem;
+                    .people{
+                        font-size:0.28rem;color:@color-5d6e7a;
+                    }
+                    .time{
+                        font-size:0.24rem;color:@color-999;
+                    }
+                }
+                .content{
+                    color:@color-555;line-height: 0.44rem;font-size:0.26rem;
+                }
+                .img_wrap{
+                    height:1.9rem;overflow: hidden;.position;
+                    .img{
+                        span{
+                            .disb;float:left;width:2.4rem;height:1.5rem;margin-left: 0.2rem;overflow: hidden;margin-top: 0.2rem;
+                            &:nth-child(2n+1){
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                    .number{font-size:0.24rem;padding:0.1rem;
+                        background:rgba(0,0,0,.7);.position(absolute);right:0;top:0.2rem;color:@color-white;.radius(0.03rem);
+                        min-width:0.24rem;min-height:0.24rem;display: block;line-height: 0.24rem;text-align: center;
+                    }
+                }
+            }
+        }
     }
 }

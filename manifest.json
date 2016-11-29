@@ -209,7 +209,11 @@
 					"WorkPlan/WorkPlan.html",
 					"VisitSign/VisitSign.html",
 					"fonts/iconfont.woff",
-					"css/iconfont.css"
+					"css/iconfont.css",
+					"js/less-2.5.3.min.js",
+					"css/style.less",
+					"ShareCircle/ShareCircle.html",
+					"ShareCircle/sharelists.html"
 				],
 				"refer": [
 					"WorkPlan/NewWorkPlan.html",
@@ -303,6 +307,47 @@
 				"refer": [
 					"VisitSign/SelectClientele.html"
 				],
+				"priority": 0
+			},
+			"ShareCircle/ShareCircle.html": {
+				"resources": [
+					"images/2.jpg",
+					"js/mui.zoom.js",
+					"fonts/mui.ttf",
+					"images/1.jpg",
+					"js/mui.previewimage.js",
+					"images/people_img.jpg",
+					"js/less-2.5.3.min.js",
+					"js/public.js",
+					"fonts/iconfont.woff",
+					"css/style.less",
+					"js/mui.min.js",
+					"js/zepto.min.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"index.html",
+					"ShareCircle/sharelists.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"ShareCircle/sharelists.html": {
+				"resources": [
+					"images/2.jpg",
+					"images/1.jpg",
+					"images/people_img.jpg",
+					"fonts/iconfont.woff",
+					"css/style.less",
+					"js/mui.zoom.js",
+					"js/less-2.5.3.min.js",
+					"js/mui.min.js",
+					"js/zepto.min.js",
+					"js/public.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"js/mui.previewimage.js"
+				],
+				"refer": [],
 				"priority": 0
 			}
 		},
