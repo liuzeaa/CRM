@@ -9,6 +9,7 @@
     <link href="css/mui.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="css/iconfont.css" />
     <link rel="stylesheet" href="css/style.css" />
+	<!--<script src="js/less-2.5.3.min.js"></script>-->
     <script src="js/zepto.min.js"></script>
     <script src="js/mui.min.js"></script>
     <script src="js/public.js"></script> 
@@ -139,12 +140,14 @@
 			var href=this.href;
 			mui.openWindow({
 				id:id,
-				url:this.href,
+				url:href,
 				show:{
-			      autoShow:false
+			      autoShow:true,
+			      aniShow:'slide-in-right',
+			      duration:'200ms'
 			   	},
 			   	waiting: {
-					autoShow: false
+					autoShow: true
 				}
 			})
 		})

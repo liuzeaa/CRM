@@ -3,7 +3,6 @@ html{font-size:100px;}
 *{padding:0;margin:0;}
 ul,ol,li{list-style: none;}
 html,body{overflow-x:hidden;width:100%;font-family: "microsoft yahei";color:@color-text;background: @color-bodybg;}
-a,a:active,a:hover,a:visited,a:target{color:@color-text}
 .fl{float:left;}
 .fr{float:right;}
 .clearfix:after{content:"";display:block;height:0;clear:both;visibility:hidden;}
@@ -13,7 +12,7 @@ a,a:active,a:hover,a:visited,a:target{color:@color-text}
 .mb20{margin-bottom: 0.2rem;}
 .mr20{margin-right: 0.2rem;}
 //在线图标库
-/*@font-face {
+@font-face {
   font-family: 'iconfont';  
   src: url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.eot');
   src: url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.eot?#iefix') format('embedded-opentype'),
@@ -28,8 +27,13 @@ a,a:active,a:hover,a:visited,a:target{color:@color-text}
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
-}*/
+}
+
 /*一些页面公用的方法*/
+.transition(@property:all,@duration: 1s,@time-function: linear,@delay: 0s) {
+  -webkit-transition: @arguments;
+  transition: @arguments;
+}
 @color-bodybg:#f4f5f6;
 @color-text:#333;
 @color-blue:#4FB1FE;
@@ -40,6 +44,7 @@ a,a:active,a:hover,a:visited,a:target{color:@color-text}
 @color-555:#555555;
 @color-5d6e7a:#5d6e7a;
 @color-ccc:#ccc;
+@color-green:#3ccdab;
 .bgqiangreen{background: #9ddc72;}
 .bggreen{background: #3ccdab;}
 .bgred{background: #fa676f;}
@@ -68,11 +73,23 @@ a,a:active,a:hover,a:visited,a:target{color:@color-text}
         height:0.88rem;line-height: 0.88rem;color:@color-white;font-size:0.34rem;
     }
 }
-.mui-switch{height:0.3rem;border-width:0.02rem;}
-.mui-switch-mini{width:0.68rem;}
-.mui-switch .mui-switch-handle{width:0.28rem;height:0.28rem;left:-0.01rem;top:-0.01rem;}
-.mui-switch-mini.mui-active .mui-switch-handle{-webkit-transform: translate(0.38rem,0);
-    transform: translate(0.38rem,0);}
+.mui-switch {
+  height: 0.3rem;
+  border-width: 0.02rem;
+}
+.mui-switch-mini {
+  width: 0.68rem;
+}
+.mui-switch .mui-switch-handle {
+  width: 0.28rem;
+  height: 0.28rem;
+  left: -0.01rem;
+  top: -0.01rem;
+}
+.mui-switch-mini.mui-active .mui-switch-handle {
+  -webkit-transform: translate(0.38rem, 0);
+  transform: translate(0.38rem, 0);
+}
 .mui-bar-nav~.mui-content{padding-top:0.88rem;}
 .mui-bar .mui-title{left:0.88rem;right:0.88rem;}
 .mui-bar .mui-icon{font-size:0.38rem;padding-top:0.25rem;padding-bottom:0.25rem;color: @color-white;}
@@ -167,13 +184,13 @@ a,a:active,a:hover,a:visited,a:target{color:@color-text}
     }
 }
 //工作计划
+.mui-table-view{background: none;}
 .plan_lists{  
     li{
         list-style: none;
         margin-top: 0.2rem;
         padding:0.15rem 0.25rem;
         background: @color-white;
-        border-bottom: 1px solid @color-border;border-top:1px solid @color-border;
         .date_switch{
             padding:0.1rem 0;
             .date{
@@ -181,7 +198,7 @@ a,a:active,a:hover,a:visited,a:target{color:@color-text}
             } 
         }
         .plan_desc{
-            font-size:0.26rem;color:@color-555;line-height: 0.3rem;padding: 0.1rem 0;
+            font-size:0.26rem;color:@color-555;line-height: 0.35rem;padding: 0.1rem 0;
         }
         .place_contact{
            line-height: 0.3rem;padding: 0.1rem 0;
@@ -261,12 +278,12 @@ a,a:active,a:hover,a:visited,a:target{color:@color-text}
 }
 //拜访签到
 .calenter_tools{
-    height:0.75rem;width:100%;
+    height:0.75rem;width:100%;position:fixed;z-index: 1;
     .calbtn{
         padding:0px 0.25rem;line-height: 0.75rem;color:@color-white;font-size:0.28rem;
     }
     .time_wrap{
-        width:3.72rem;padding:0px 0.25rem;line-height: 0.75rem;color:@color-white;text-align: center;
+        width:3.72rem;padding:0px 0.25rem;height:0.75rem;line-height:0.75rem;color:@color-white;text-align: center;
         .iconfont{
             font-size:0.28rem;padding:0px 0.15rem;
         }
@@ -296,4 +313,18 @@ a,a:active,a:hover,a:visited,a:target{color:@color-text}
     .date{
         font-size:0.24rem;color:@color-999;
     }
+}
+.sign_clientele{width:100%;padding:0.25rem 0.5rem;background: rgba(255,255,255,.8);.position(absolute);top:0;z-index: 999;
+    .clientele{
+        text-align: center;
+        h2{
+            font-size:0.3rem;color:@color-5d6e7a;line-height: 0.4rem;height:0.4rem;font-weight: normal;margin: 0;
+        }
+        p{margin: 0;font-size:0.24rem;color:@color-555;line-height: 0.32rem;height:0.32rem;}
+    }
+    i{
+        width:0.4rem;height:0.4rem;font-size:0.4rem;color:@color-5d6e7a;position:absolute;top:0;right:0;bottom: 0;margin: auto 0.1rem auto auto;line-height: 0.4rem;    }
+}
+#signbtn{
+    width:100%;height:0.8rem;color:@color-white;font-size:0.32rem;background: @color-green;border: 0;.position(fixed);bottom:0;z-index: 999;
 }

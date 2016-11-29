@@ -19,13 +19,6 @@ body {
   color: #333;
   background: #f4f5f6;
 }
-a,
-a:active,
-a:hover,
-a:visited,
-a:target {
-  color: #333;
-}
 .fl {
   float: left;
 }
@@ -54,22 +47,19 @@ a:target {
 .mr20 {
   margin-right: 0.2rem;
 }
-/*@font-face {
-  font-family: 'iconfont';  
+@font-face {
+  font-family: 'iconfont';
   src: url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.eot');
-  src: url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.woff') format('woff'),
-  url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.woff') format('woff'), url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.ttf') format('truetype'), url('//at.alicdn.com/t/font_ylmx7qnq0ur0y66r.svg#iconfont') format('svg');
 }
 .iconfont {
-  font-family:"iconfont" !important;
-  font-size:16px;
-  font-style:normal;
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
-}*/
+}
 /*一些页面公用的方法*/
 .bgqiangreen {
   background: #9ddc72;
@@ -293,13 +283,14 @@ a:target {
   font-size: 0.26rem;
   color: #5d6e7a;
 }
+.mui-table-view {
+  background: none;
+}
 .plan_lists li {
   list-style: none;
   margin-top: 0.2rem;
   padding: 0.15rem 0.25rem;
   background: #fff;
-  border-bottom: 1px solid #EFEFEF;
-  border-top: 1px solid #EFEFEF;
 }
 .plan_lists li .date_switch {
   padding: 0.1rem 0;
@@ -312,7 +303,7 @@ a:target {
 .plan_lists li .plan_desc {
   font-size: 0.26rem;
   color: #555555;
-  line-height: 0.3rem;
+  line-height: 0.35rem;
   padding: 0.1rem 0;
 }
 .plan_lists li .place_contact {
@@ -439,6 +430,8 @@ a:target {
 .calenter_tools {
   height: 0.75rem;
   width: 100%;
+  position: fixed;
+  z-index: 1;
 }
 .calenter_tools .calbtn {
   padding: 0px 0.25rem;
@@ -449,6 +442,7 @@ a:target {
 .calenter_tools .time_wrap {
   width: 3.72rem;
   padding: 0px 0.25rem;
+  height: 0.75rem;
   line-height: 0.75rem;
   color: #fff;
   text-align: center;
@@ -488,4 +482,53 @@ a:target {
 .sign_lists li .date {
   font-size: 0.24rem;
   color: #999999;
+}
+.sign_clientele {
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  top: 0;
+  z-index: 999;
+}
+.sign_clientele .clientele {
+  text-align: center;
+}
+.sign_clientele .clientele h2 {
+  font-size: 0.3rem;
+  color: #5d6e7a;
+  line-height: 0.4rem;
+  height: 0.4rem;
+  font-weight: normal;
+  margin: 0;
+}
+.sign_clientele .clientele p {
+  margin: 0;
+  font-size: 0.24rem;
+  color: #555555;
+  line-height: 0.32rem;
+  height: 0.32rem;
+}
+.sign_clientele i {
+  width: 0.4rem;
+  height: 0.4rem;
+  font-size: 0.4rem;
+  color: #5d6e7a;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto 0.1rem auto auto;
+  line-height: 0.4rem;
+}
+#signbtn {
+  width: 100%;
+  height: 0.8rem;
+  color: #fff;
+  font-size: 0.32rem;
+  background: #3ccdab;
+  border: 0;
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
 }

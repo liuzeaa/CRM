@@ -7,18 +7,16 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	    <title>签到查看</title>
 	    <link href="../css/mui.min.css" rel="stylesheet"/>
-	     <link rel="stylesheet" href="../css/iconfont.css" />
-	    <link rel="stylesheet/less" href="../css/style.less" />
-	    <script src="../js/less-2.5.3.min.js"></script>
-	    <script src="../js/zepto.min.js"></script>
+	    <link rel="stylesheet" href="../css/iconfont.css" />
+	    <link rel="stylesheet" href="../css/style.css" />
+	    <!--<script src="../js/less-2.5.3.min.js"></script>-->
 	    <script src="../js/mui.min.js"></script>
-	    <script src="../js/public.js"></script>
 	</head>
 	<body>
 		<header class="mui-bar mui-bar-nav Header bgred">
 		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		    <h1 class="mui-title">签到查看</h1>
-		    <span class="mui-pull-right header_button">签到</span>
+		    <a class="mui-pull-right header_button" href="Map.html" id="sign">签到</a>
 		</header>
 		<div class="mui-content">
 		    <div class="calenter_tools bgred clearfix">
@@ -30,46 +28,55 @@
 		    	</div>
 		    	<div class=" fr calbtn" id="nextbtn">后一天</div>
 		    </div>
-		    <div id="calendar" style="display: none;"></div>
-		    <ul class="sign_lists">
-		    	<li>
-		    		<div class="clearfix">
-		    			<span class="school fl">海淀希望小学</span>
-		    			<span class="fr people">曲明明</span>
-		    		</div>
-		    		<div class="clearfix">
-		    			<span class="piancha fl">位置偏差：67米</span>
-		    			<span class="date fr">2016-11-17 12:40</span>
-		    		</div>
-		    	</li>
-		    	<li>
-		    		<div class="clearfix">
-		    			<span class="school fl">海淀希望小学</span>
-		    			<span class="fr people">曲明明</span>
-		    		</div>
-		    		<div class="clearfix">
-		    			<span class="piancha fl">位置偏差：67米</span>
-		    			<span class="date fr">2016-11-17 12:40</span>
-		    		</div>
-		    	</li>
-		    	<li>
-		    		<div class="clearfix">
-		    			<span class="school fl">海淀希望小学</span>
-		    			<span class="fr people">曲明明</span>
-		    		</div>
-		    		<div class="clearfix">
-		    			<span class="piancha fl">位置偏差：67米</span>
-		    			<span class="date fr">2016-11-17 12:40</span>
-		    		</div>
-		    	</li>
-		    </ul>
+		    <div style="padding-top: 0.75rem;">
+			    <div id="calendar" style="display: none;"></div>
+			    <ul class="sign_lists">
+			    	<li>
+			    		<div class="clearfix">
+			    			<span class="school fl">海淀希望小学</span>
+			    			<span class="fr people">曲明明</span>
+			    		</div>
+			    		<div class="clearfix">
+			    			<span class="piancha fl">位置偏差：67米</span>
+			    			<span class="date fr">2016-11-17 12:40</span>
+			    		</div>
+			    	</li>
+			    	<li>
+			    		<div class="clearfix">
+			    			<span class="school fl">海淀希望小学</span>
+			    			<span class="fr people">曲明明</span>
+			    		</div>
+			    		<div class="clearfix">
+			    			<span class="piancha fl">位置偏差：67米</span>
+			    			<span class="date fr">2016-11-17 12:40</span>
+			    		</div>
+			    	</li>
+			    	<li>
+			    		<div class="clearfix">
+			    			<span class="school fl">海淀希望小学</span>
+			    			<span class="fr people">曲明明</span>
+			    		</div>
+			    		<div class="clearfix">
+			    			<span class="piancha fl">位置偏差：67米</span>
+			    			<span class="date fr">2016-11-17 12:40</span>
+			    		</div>
+			    	</li>
+			    </ul>
+		    </div>
 		</div>
 		<link rel="stylesheet" type="text/css" href="../css/mobiscroll.custom-3.0.0-beta2.min.css"/>
 		<script src="../js/jquery-1.8.3.min.js"></script>
+		<script src="../js/public.js"></script>
 		<script src="../js/mobiscroll.custom-3.0.0-beta2.min.js"></script>
 		<script type="text/javascript">
 			mui.init({
-				swipeBack:true //启用右滑关闭功能
+				swipeBack:false, //启用右滑关闭功能
+				preloadPages:[
+				    {
+				      url:'Map.html',
+				      id:'Map.html'
+				    }
+				]
 			});
 			!(function(){
 				function getNowFormatDate(addDayCount) {  
@@ -109,68 +116,96 @@
 				  	document.getElementById('time').innerHTML = getNowFormatDate(n);  
 				})
 			})();
-			document.querySelector('#time').addEventListener('tap',function(){
+			document.querySelector('.time_wrap').addEventListener('tap',function(){
 				if($('#calendar').is(':hidden')){
-					$('#calendar').fadeIn();
+					$('#calendar').slideDown().css({'width':'100%'});
+					var now = new Date();
+				    mobiscroll.calendar('#calendar', {
+				        display: 'inline',        // Specify display mode like: display: 'bottom' or omit setting to use default
+				        layout: 'liquid',         // More info about layout: https://docs.mobiscroll.com/3-0-0_beta6/javascript/calendar#!opt-layout
+				        theme: 'mobiscroll',      // Specify theme like: theme: 'ios' or omit setting to use default
+				        lang: 'zh',               // Specify language like: lang: 'pl' or omit setting to use default
+				        
+				        markedDisplay: 'bottom',  // More info about markedDisplay: https://docs.mobiscroll.com/3-0-0_beta6/javascript/calendar#!opt-markedDisplay
+				        marked: [{                // More info about marked: https://docs.mobiscroll.com/3-0-0_beta6/javascript/calendar#!opt-marked
+				            d: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 5),
+				            color: 'rgb(28, 161, 227)'
+				        }, {
+				            d: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 6),
+				            color: 'rgb(28, 161, 227)'
+				        }, {
+				            d: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 7),
+				            color: 'rgb(28, 161, 227)'
+				        }, {
+				            d: new Date(now.getFullYear(), now.getMonth() + 1, 15),
+				            color: 'rgb(28, 161, 227)'
+				        }, {
+				            d: '11/30',
+				            color: 'rgb(163, 0, 38)'
+				        }, {
+				            d: '5/23',
+				            color: 'rgb(163, 0, 38)'
+				        }, {
+				            d: '3/12',
+				            color: 'rgb(163, 0, 38)'
+				        }, {
+				            d: '14',
+				            color: 'rgb(204,204,0)'
+				        }, {
+				            d: 'w5',
+				            color: 'rgb(34, 139, 34)'
+				        }, {
+				            d: '1/1',
+				            color: 'rgb(250,104,0)'
+				        }, {
+				            d: '1/2',
+				            color: 'rgb(250,104,0)'
+				        }, {
+				            d: '6/4',
+				            color: 'rgb(250,104,0)'
+				        }, {
+				            d: '8/4',
+				            color: 'rgb(250,104,0)'
+				        }, {
+				            d: '12/25',
+				            color: 'rgb(250,104,0)'
+				        }, {
+				            d: '12/26',
+				            color: 'rgb(250,104,0)'
+				        }]
+				    });
 				}else{
-					$('#calendar').fadeOut();
+					$('#calendar').stop().slideUp();
 				}
 			})
-			var now = new Date();
-		    mobiscroll.calendar('#calendar', {
-		        display: 'inline',        // Specify display mode like: display: 'bottom' or omit setting to use default
-		        layout: 'liquid',         // More info about layout: https://docs.mobiscroll.com/3-0-0_beta6/javascript/calendar#!opt-layout
-		        theme: 'mobiscroll',      // Specify theme like: theme: 'ios' or omit setting to use default
-		        lang: 'zh',               // Specify language like: lang: 'pl' or omit setting to use default
-		        
-		        markedDisplay: 'bottom',  // More info about markedDisplay: https://docs.mobiscroll.com/3-0-0_beta6/javascript/calendar#!opt-markedDisplay
-		        marked: [{                // More info about marked: https://docs.mobiscroll.com/3-0-0_beta6/javascript/calendar#!opt-marked
-		            d: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 5),
-		            color: 'rgb(28, 161, 227)'
-		        }, {
-		            d: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 6),
-		            color: 'rgb(28, 161, 227)'
-		        }, {
-		            d: new Date(now.getFullYear(), now.getMonth(), now.getDate() + 7),
-		            color: 'rgb(28, 161, 227)'
-		        }, {
-		            d: new Date(now.getFullYear(), now.getMonth() + 1, 15),
-		            color: 'rgb(28, 161, 227)'
-		        }, {
-		            d: '11/30',
-		            color: 'rgb(163, 0, 38)'
-		        }, {
-		            d: '5/23',
-		            color: 'rgb(163, 0, 38)'
-		        }, {
-		            d: '3/12',
-		            color: 'rgb(163, 0, 38)'
-		        }, {
-		            d: '14',
-		            color: 'rgb(204,204,0)'
-		        }, {
-		            d: 'w5',
-		            color: 'rgb(34, 139, 34)'
-		        }, {
-		            d: '1/1',
-		            color: 'rgb(250,104,0)'
-		        }, {
-		            d: '1/2',
-		            color: 'rgb(250,104,0)'
-		        }, {
-		            d: '6/4',
-		            color: 'rgb(250,104,0)'
-		        }, {
-		            d: '8/4',
-		            color: 'rgb(250,104,0)'
-		        }, {
-		            d: '12/25',
-		            color: 'rgb(250,104,0)'
-		        }, {
-		            d: '12/26',
-		            color: 'rgb(250,104,0)'
-		        }]
-		    });
+			var add = document.querySelector('#sign');
+			add.addEventListener('tap',function(){
+				var id = this.id;
+				var href=this.href;
+				mui.openWindow({
+					id:id,
+					url:href,
+					show:{
+				      autoShow:true,
+				      aniShow:'slide-in-right',
+				      duration:'200ms'
+				   	},
+				   	waiting: {
+						autoShow: true
+					}
+				});
+			});
+			window.onload=function(){
+				//从服务器获取数据
+				
+				mui.plusReady(function(){
+				    //关闭等待框
+				    plus.nativeUI.closeWaiting();
+				    //显示当前页面
+				    mui.currentWebview.show();
+				  });
+			}
+			
 		</script>
 	</body>
 </html>
