@@ -1,9 +1,88 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<title></title>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <title>工作计划</title>
+	    <link href="../css/mui.min.css" rel="stylesheet"/>
+	    <link rel="stylesheet" href="../css/iconfont.css" />
+	    <link rel="stylesheet/less" href="../css/style.less" />
+	    <script src="../js/less-2.5.3.min.js"></script>
+	    <script src="../js/zepto.min.js"></script>
+	    <script src="../js/mui.min.js"></script>
+	    <script src="../js/public.js"></script>
 	</head>
 	<body>
+		<header class="mui-bar mui-bar-nav Header bgred">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">选择客户</h1>
+		</header>
+		<div class="mui-content">
+			<div class="search_wrap">
+				<input type="text" name="" id="" placeholder="请输入客户名称" class="search"/>
+				<i class="mui-icon-search mui-icon"></i>
+			</div>
+		    <ul class="sign_lists" style="margin-top: 1rem;">
+		    	<li>
+		    		<div class="clearfix">
+		    			<span class="school fl">海淀希望小学</span>
+		    			<span class="fr people">67m</span>
+		    		</div>
+		    		<div class="clearfix">
+		    			<span class="piancha fl"><i class="iconfont">&#xe68a;</i>北三环学府路23号</span>
+		    		</div>
+		    	</li>
+		    	<li>
+		    		<div class="clearfix">
+		    			<span class="school fl">海淀希望小学</span>
+		    			<span class="fr people">67m</span>
+		    		</div>
+		    		<div class="clearfix">
+		    			<span class="piancha fl"><i class="iconfont">&#xe68a;</i>北三环学府路23号</span>
+		    		</div>
+		    	</li><li>
+		    		<div class="clearfix">
+		    			<span class="school fl">海淀希望小学</span>
+		    			<span class="fr people">67m</span>
+		    		</div>
+		    		<div class="clearfix">
+		    			<span class="piancha fl"><i class="iconfont">&#xe68a;</i>北三环学府路23号</span>
+		    		</div>
+		    	</li><li>
+		    		<div class="clearfix">
+		    			<span class="school fl">海淀希望小学</span>
+		    			<span class="fr people">67m</span>
+		    		</div>
+		    		<div class="clearfix">
+		    			<span class="piancha fl"><i class="iconfont">&#xe68a;</i>北三环学府路23号</span>
+		    		</div>
+		    	</li><li>
+		    		<div class="clearfix">
+		    			<span class="school fl">海淀希望小学</span>
+		    			<span class="fr people">67m</span>
+		    		</div>
+		    		<div class="clearfix">
+		    			<span class="piancha fl"><i class="iconfont">&#xe68a;</i>北三环学府路23号</span>
+		    		</div>
+		    	</li>
+		    </ul>
+		</div>
+		<script>
+			mui.init({
+				swipeBack:true //启用右滑关闭功能
+			});
+			window.onload=function(){
+				//从服务器获取数据
+				
+				mui.plusReady(function(){
+				    //关闭等待框
+				    plus.nativeUI.closeWaiting();
+				    //显示当前页面
+				    mui.currentWebview.show();
+				  });
+			}
+		</script>
 	</body>
 </html>

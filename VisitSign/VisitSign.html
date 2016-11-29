@@ -16,7 +16,7 @@
 		<header class="mui-bar mui-bar-nav Header bgred">
 		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		    <h1 class="mui-title">签到查看</h1>
-		    <a class="mui-pull-right header_button" href="Map.html" id="sign">签到</a>
+		    <span class="mui-pull-right header_button" id="sign">签到</span>
 		</header>
 		<div class="mui-content">
 		    <div class="calenter_tools bgred clearfix">
@@ -181,10 +181,9 @@
 			var add = document.querySelector('#sign');
 			add.addEventListener('tap',function(){
 				var id = this.id;
-				var href=this.href;
 				mui.openWindow({
 					id:id,
-					url:href,
+					url:'Map.html',
 					show:{
 				      autoShow:true,
 				      aniShow:'slide-in-right',
