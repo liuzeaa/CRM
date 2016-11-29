@@ -134,7 +134,14 @@
 				backbutton: true  //启动back按键监听
 			}
 		});
-		
+		var page1 = mui.preload({
+		    url:'/WorkPlan/WorkPlan.html',
+			id:'WorkPlan.html'
+		});
+		var page2 = mui.preload({
+		    url:'/VisitSign/VisitSign.html',
+			id:'VisitSign.html'
+		});
 		$('.enter').on('tap','a',function(){
 			var id = this.getAttribute('href');
 			var href=this.href;

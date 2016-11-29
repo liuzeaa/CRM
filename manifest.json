@@ -207,10 +207,13 @@
 					"css/style.css",
 					"js/ejs.min.js",
 					"WorkPlan/WorkPlan.html",
-					"VisitSign/VisitSign.html"
+					"VisitSign/VisitSign.html",
+					"fonts/iconfont.woff",
+					"css/iconfont.css"
 				],
 				"refer": [
-					"WorkPlan/NewWorkPlan.html"
+					"WorkPlan/NewWorkPlan.html",
+					"VisitSign/Map.html"
 				],
 				"priority": 0
 			},
@@ -223,7 +226,9 @@
 					"js/public.js",
 					"css/mui.min.css",
 					"css/style.css",
-					"WorkPlan/NewWorkPlan.html"
+					"WorkPlan/NewWorkPlan.html",
+					"css/iconfont.css",
+					"fonts/iconfont.woff"
 				],
 				"refer": [],
 				"priority": 0
@@ -244,7 +249,12 @@
 					"css/style.css",
 					"WorkPlan/WorkPlan.html",
 					"savetofile.php",
-					"css/style.less"
+					"css/style.less",
+					"js/jquery-1.8.3.min.js",
+					"js/mobiscroll.custom-3.0.0-beta2.min.js",
+					"css/mobiscroll.custom-3.0.0-beta2.min.css",
+					"css/iconfont.css",
+					"fonts/iconfont.woff"
 				],
 				"refer": [],
 				"priority": 0
@@ -256,9 +266,41 @@
 					"js/less-2.5.3.min.js",
 					"js/mobiscroll.custom-3.0.0-beta2.min.js",
 					"fonts/icons_mobiscroll.ttf",
-					"css/mobiscroll.custom-3.0.0-beta2.min.css"
+					"css/mobiscroll.custom-3.0.0-beta2.min.css",
+					"index.html",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css",
+					"fonts/iconfont.woff",
+					"js/public.js"
 				],
 				"refer": [],
+				"priority": 0
+			},
+			"VisitSign/SelectClientele.html": {
+				"resources": [
+					"css/style.less",
+					"js/less-2.5.3.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"VisitSign/Map.html": {
+				"resources": [
+					"js/mui.min.js",
+					"js/zepto.min.js",
+					"fonts/mui.ttf",
+					"js/public.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css",
+					"fonts/iconfont.woff"
+				],
+				"refer": [
+					"VisitSign/SelectClientele.html"
+				],
 				"priority": 0
 			}
 		},

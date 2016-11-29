@@ -33,15 +33,14 @@
     pro.formatTime = formatTime;
     pro.queryURLParameter = queryURLParameter;
 }(String.prototype);
-//获取当前时间，前一天，后一天
-
-
-~function () {
-	function fn(){
-		var desW = 640;
-    	var winW = document.documentElement.clientWidth;
-    	document.documentElement.style.fontSize = winW / desW * 100 + 'px';
-	}
-    fn();
-    $(window).on('resize', fn);
-}();
+$(function(){
+	~function () {
+		function fn(){
+			var desW = 640;
+	    	var winW = document.documentElement.clientWidth;
+	    	document.documentElement.style.fontSize = winW / desW * 100 + 'px';
+		}
+	    fn();
+	    $(window).on('resize', fn);
+	}();
+})		
