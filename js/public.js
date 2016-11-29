@@ -33,7 +33,6 @@
     pro.formatTime = formatTime;
     pro.queryURLParameter = queryURLParameter;
 }(String.prototype);
-$(function(){
 	~function () {
 		function fn(){
 			var desW = 640;
@@ -42,5 +41,4 @@ $(function(){
 		}
 	    fn();
 	    $(window).on('resize', fn);
-	}();
-})		
+	}();	
