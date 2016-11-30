@@ -232,7 +232,8 @@
 					"css/style.css",
 					"WorkPlan/NewWorkPlan.html",
 					"css/iconfont.css",
-					"fonts/iconfont.woff"
+					"fonts/iconfont.woff",
+					"css/style.less"
 				],
 				"refer": [],
 				"priority": 0
