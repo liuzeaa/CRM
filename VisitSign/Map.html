@@ -35,7 +35,10 @@
 		
 		<script type="text/javascript">
 			mui.init({
-				swipeBack:false //启用右滑关闭功能
+				swipeBack:false, //启用右滑关闭功能
+				keyEventBind: {
+					backbutton: true  //启动back按键监听
+				}
 			});
 			window.onload=function(){
 				//从服务器获取数据

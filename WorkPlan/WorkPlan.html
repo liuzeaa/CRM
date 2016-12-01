@@ -110,7 +110,10 @@
 		</div>
 		<script type="text/javascript">
 			mui.init({
-				swipeBack:true,//启用右滑关闭功能
+				swipeBack:false,//启用右滑关闭功能
+				keyEventBind: {
+					backbutton: true  //启动back按键监听
+				}
 			});
 			var btnArray = ['确认', '取消'];
 			mui('.plan_lists').on('tap', '.mui-btn', function(event) {

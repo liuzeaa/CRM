@@ -116,8 +116,11 @@
 		<script  src="../js/upload.js"></script>
 		<script type="text/javascript">
 			(function($) {
-				$.init();
-				
+				$.init({
+					keyEventBind: {
+						backbutton: true  //启动back按键监听
+					}	
+				});
 			})(mui);
 		</script>
 		
