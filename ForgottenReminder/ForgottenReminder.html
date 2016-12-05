@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <title>首页</title>
+	    <link href="../css/mui.min.css" rel="stylesheet"/>
+	    <link rel="stylesheet" href="../css/iconfont.css" />
+	    <link rel="stylesheet" type="text/css" href="../css/scrollbar.css"/>
+	    <link rel="stylesheet/less" href="../css/style.less" />
+		<script src="../js/less-2.5.3.min.js"></script>
+	    <script src="../js/zepto.min.js"></script>
+	    <script src="../js/public.js"></script>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav  Header bgblue">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">遗忘提醒</h1>
+		    <a class="mui-icon mui-pull-right mui-icon-right-nav mui-icon mui-icon-plusempty" id="add" href="NewReminder.html"></a>
+		    <a class="mui-icon mui-pull-right mui-icon-right-nav mui-icon mui-icon-gear" id="settings" href="ReminderSettings.html"></a>
+		</header>
+		<div class="mui-content">
+		    	<ul class="plan_lists mui-table-view">
+		   		<li class="mui-table-view-cell">
+		   			<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+			   			<div class="clearfix date_switch">
+			   				<div class="date fl">
+			   					2016年7月15日  上午10:00
+			   				</div>
+			   				<div class="mui-switch mui-switch-mini mui-active fr mui-switch-green">
+							  	<div class="mui-switch-handle"></div>
+							</div>
+			   			</div>
+			   			<div class="plan_desc">
+			   				今天上午去北京航空航天大学查看现场设备
+			   			</div>
+			   			<div class="place_contact clearfix">
+			   				<span class="place">
+			   					<i class="iconfont">&#xe68a;</i>
+			   					北京理工大学
+			   				</span>
+			   				<span class="contact">
+			   					<i class="iconfont">&#xe614;</i>
+			   					王山水（教务处主任）
+			   				</span>
+			   			</div>
+		   			</div>
+		   		</li>
+		   		<li class="mui-table-view-cell">
+		   			<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+			   			<div class="clearfix date_switch">
+			   				<div class="date fl">
+			   					2016年7月15日  上午10:00
+			   				</div>
+			   				<div class="mui-switch mui-switch-mini mui-active fr mui-switch-green">
+							  	<div class="mui-switch-handle"></div>
+							</div>
+			   			</div>
+			   			<div class="plan_desc">
+			   				今天上午去北京航空航天大学查看现场设备
+			   			</div>
+			   			<div class="place_contact clearfix">
+			   				<span class="place">
+			   					<i class="iconfont">&#xe68a;</i>
+			   					北京理工大学
+			   				</span>
+			   				<span class="contact">
+			   					<i class="iconfont">&#xe614;</i>
+			   					王山水（教务处主任）
+			   				</span>
+			   			</div>
+		   			</div>
+		   		</li>
+		   		<li class="mui-table-view-cell">
+		   			<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+			   			<div class="clearfix date_switch">
+			   				<div class="date fl">
+			   					2016年7月15日  上午10:00
+			   				</div>
+			   				<div class="mui-switch mui-switch-mini mui-active fr mui-switch-green">
+							  	<div class="mui-switch-handle"></div>
+							</div>
+			   			</div>
+			   			<div class="plan_desc">
+			   				今天上午去北京航空航天大学查看现场设备
+			   			</div>
+			   			<div class="place_contact clearfix">
+			   				<span class="place">
+			   					<i class="iconfont">&#xe68a;</i>
+			   					北京理工大学
+			   				</span>
+			   				<span class="contact">
+			   					<i class="iconfont">&#xe614;</i>
+			   					王山水（教务处主任）
+			   				</span>
+			   			</div>
+		   			</div>
+		   		</li>
+		   	</ul>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			(function($) {
+				$.init({
+					keyEventBind: {
+						backbutton: true  //启动back按键监听
+					}	
+				});
+				var add = document.querySelector('#add');
+				add.addEventListener('tap',function(){
+					var id = this.id;
+					var href=this.href;
+					$.openWindow({
+						id:id,
+						url:href,
+						show:{
+					      autoShow:true,
+					      aniShow:'slide-in-right',
+					      duration:'200ms'
+					   	},
+					   	waiting: {
+							autoShow: true
+						}
+					});
+				});
+				var add = document.querySelector('#settings');
+				add.addEventListener('tap',function(){
+					var id = this.id;
+					var href=this.href;
+					$.openWindow({
+						id:id,
+						url:href,
+						show:{
+					      autoShow:true,
+					      aniShow:'slide-in-right',
+					      duration:'200ms'
+					   	},
+					   	waiting: {
+							autoShow: true
+						}
+					});
+				});
+			})(mui);
+			window.onload=function(){
+				//从服务器获取数据
+				
+				mui.plusReady(function(){
+				    //关闭等待框
+				    plus.nativeUI.closeWaiting();
+				    //显示当前页面
+				    mui.currentWebview.show();
+				  });
+			}
+		</script>
+	</body>
+</html>
