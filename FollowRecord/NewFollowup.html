@@ -5,13 +5,13 @@
 	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	    <title>首页</title>
+	    <title>添加跟进</title>
 	    <link href="../css/mui.min.css" rel="stylesheet"/>
 	    <link rel="stylesheet" href="../css/iconfont.css" />
 	    <link rel="stylesheet" type="text/css" href="../css/scrollbar.css"/>
 	    <link rel="stylesheet/less" href="../css/style.less" />
 		<script src="../js/less-2.5.3.min.js"></script>
-	    <script src="../js/zepto.min.js"></script>
+	    <script src="../js/jquery-1.8.3.min.js"></script>
 	    <script src="../js/public.js"></script>
 	</head>
 	<body>
@@ -21,9 +21,111 @@
 		    <span class="mui-pull-right header_button">保存</span>
 		</header>
 		<div class="mui-content">
-		    
+		    <section class="section_module mt20">
+		    	<form class="mui-input-group">
+					<div class="input-row clearfix">
+						<div class="icon bgqiangreen fl">
+							<i class="iconfont">&#xe614;</i>
+						</div>
+						<label for=""  class="fl">
+							客户名称
+						</label>
+						<div class="input fr">
+							<input type="text" name="" id="" value="" placeholder="北京建筑大学" class="text"/>
+							<i class="iconfont">&#xe64c;</i>
+						</div>
+					</div>
+					<div class="input-row clearfix">
+						<div class="icon bgblue fl">
+							<i class="iconfont">&#xe615;</i>
+						</div>
+						<label for=""  class="fl">
+							联系人
+						</label>
+						<div class="input fr">
+							<input type="text" name="" id="" value=""  class="text select" placeholder="请选择联系人"/>
+							<i class="iconfont">&#xe64c;</i>
+						</div>
+					</div>
+					<div class="input-row clearfix">
+						<div class="icon bgpink fl">
+							<i class="iconfont">&#xe692;</i>
+						</div>
+						<label for="" class="fl">
+							跟进类型
+						</label>
+						<div class="input fr">
+							<input type="text" name="" id="select_type"  placeholder="请选择跟进类型"  class="text select"/>
+							<i class="iconfont">&#xe64c;</i>
+						</div>
+					</div>
+				</form>
+		    </section>
+		    <section class="section_module mt20">
+		    	<form class="mui-input-group">
+		    		<div class="row">
+		    			<textarea id='question' class="mui-input-clear question" placeholder="输入计划内容"></textarea>
+		    		</div>
+		    		<div class="camera-area">
+		    			<div class="clearfix">
+			    			<div class="imgicon fl">
+			    				<input type="file" name="fileToUpload" class="fileToUpload" accept="image/*" capture="camera" />
+			    			</div>
+				        	<div class="fl wen">
+				        		添加图片
+				        	</div>
+			        	</div>
+			          	<div class="upload-progress"><span></span></div>
+				      	<div class="thumb"></div>
+				  	</div>
+	    		</form>
+	    	</section>
+	    	<section class="section_module mt20">
+	    		<div class="mui-input-group" >
+	    			<div class="input-row clearfix">
+						<div class="icon bghuang fl">
+							<i class="iconfont">&#xe68a;</i>
+						</div>
+						<label for=""  class="fl">
+							地址
+						</label>
+						<div class="input fr">
+							<input type="text" name="" id="" value="" placeholder="请选择地址" class="text select"/>
+							<i class="iconfont">&#xe64c;</i>
+						</div>
+					</div>
+	    			<div class="clearfix remind">
+		    			<div class="icon bgqiangreen fl">
+							<i class="iconfont">&#xe628;</i>
+						</div>
+						<div class="fl">
+							<div class="input-row" style="width:5.35rem;">
+								<label for=""  class="fl">
+									提醒
+								</label>
+								<div class="mui-switch mui-switch-mini mui-active fr mui-switch-green">
+								  	<div class="mui-switch-handle"></div>
+								</div>
+							</div>
+							<div class="input-row" style="width:5.35rem;">
+								<label for=""  class="fl">
+									提醒时间
+								</label>
+								<div class="input fr">
+									<input type="text" name="" id="select_time"  value=""  class="text select" placeholder="请选择时间"/>
+									<i class="iconfont">&#xe64c;</i>
+								</div>
+							</div>
+						</div>
+					</div>
+	    		</div>
+	    	</section>
 		</div>
 		<script src="../js/mui.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/mobiscroll.custom-3.0.0-beta2.min.css"/>
+		
+		<script src="../js/mobiscroll.custom-3.0.0-beta2.min.js"></script>
+		<script  src="../js/upload.js"></script>
 		<script type="text/javascript">
 			(function($) {
 				$.init({
@@ -37,7 +139,40 @@
 				    //显示当前页面
 				    $.currentWebview.show();
 				});
+				var add = document.querySelector('#select_type');
+				add.addEventListener('tap',function(){
+					var id = this.id;
+					mui.openWindow({
+						id:id,
+						url:'SelectFollowup.html',
+						show:{
+					      autoShow:true,
+					      aniShow:'slide-in-right',
+					      duration:'200ms'
+					   	},
+					   	waiting: {
+							autoShow: true
+						}
+					});
+				});
 			})(mui);
+			$(function(){
+				$(".camera-area").fileUpload({
+		        	"url": "../savetofile.php",
+		        	"file": "myFile"
+		      	});
+		      	var now = new Date(),
+		        minDate = new Date(now.getFullYear() - 10, now.getMonth(), now.getDate()),
+		        maxDate = new Date(now.getFullYear() + 10, now.getMonth(), now.getDate());
+		    
+		    var instance = mobiscroll.datetime('#select_time', {
+		        theme: 'mobiscroll',  // Specify theme like: theme: 'ios' or omit setting to use default
+		        lang: 'zh',           // Specify language like: lang: 'pl' or omit setting to use default
+		        display: 'bottom',    // Specify display mode like: display: 'bottom' or omit setting to use default
+		        min: minDate,         // More info about min: https://docs.mobiscroll.com/3-0-0_beta6/javascript/datetime#!opt-min
+		        max: maxDate          // More info about max: https://docs.mobiscroll.com/3-0-0_beta6/javascript/datetime#!opt-max
+		    });
+			})
 		</script>
 	</body>
 </html>
