@@ -213,7 +213,10 @@
 					"js/less-2.5.3.min.js",
 					"css/style.less",
 					"ShareCircle/ShareCircle.html",
-					"ShareCircle/sharelists.html"
+					"ShareCircle/sharelists.html",
+					"ShareCircle/sharelist.html",
+					"ShareCircle/pullrefresh_sub.html",
+					"ShareCircle/pullrefresh_main.html"
 				],
 				"refer": [
 					"WorkPlan/NewWorkPlan.html",
@@ -327,9 +330,13 @@
 					"css/iconfont.css",
 					"css/mui.min.css",
 					"index.html",
-					"ShareCircle/sharelists.html"
+					"ShareCircle/sharelists.html",
+					"ShareCircle/sharelist.html",
+					"css/style.css"
 				],
-				"refer": [],
+				"refer": [
+					"ShareCircle/pullrefresh_sub.html"
+				],
 				"priority": 0
 			},
 			"ShareCircle/sharelists.html": {
@@ -347,6 +354,22 @@
 					"css/iconfont.css",
 					"css/mui.min.css",
 					"js/mui.previewimage.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"ShareCircle/pullrefresh_sub.html": {
+				"resources": [
+					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"ShareCircle/pullrefresh_main.html": {
+				"resources": [
+					"index.html",
+					"js/mui.min.js",
+					"css/mui.min.css"
 				],
 				"refer": [],
 				"priority": 0
