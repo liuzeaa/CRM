@@ -31,7 +31,7 @@
 							工作计划
 						</label>
 						<div class="input fr">
-							<input type="text" name="" id="" value="" placeholder="提前一天提醒" class="text"/>
+							<a href="#plan" class="action">提前一天提醒</a>
 							<i class="iconfont">&#xe64c;</i>
 						</div>
 					</div>
@@ -43,7 +43,7 @@
 							客户跟进
 						</label>
 						<div class="input fr">
-							<input type="text" name="" id="" value=""  class="text " placeholder="提前一天提醒"/>
+							<a href="#follow" class="action">提前一天提醒</a>
 							<i class="iconfont">&#xe64c;</i>
 						</div>
 					</div>
@@ -55,28 +55,77 @@
 							生日提醒
 						</label>
 						<div class="input fr">
-							<input type="text" name="" id="" placeholder="提前一天提醒"  class="text"/>
+							<a href="#birthday" class="action">提前一天提醒</a>
 							<i class="iconfont">&#xe64c;</i>
 						</div>
 					</div>
 				</form>
 		    </section>
 		</div>
+		<div id="plan" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#">提前一天提醒</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="#">提钱两天提醒</a>
+				</li>
+			</ul>
+		</div>
+		<div id="follow" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#">提前四天提醒</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="#">提钱两天提醒</a>
+				</li>
+			</ul>
+		</div>
+		<div id="birthday" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#">提前一天提醒</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="#">提钱三天提醒</a>
+				</li>
+			</ul>
+		</div>
 		<script type="text/javascript">
-			(function($) {
-				$.init({
-					keyEventBind: {
-						backbutton: true  //启动back按键监听
-					}	
-				});
-			})(mui);
+			mui.init({
+				keyEventBind: {
+					backbutton: true  //启动back按键监听
+				}	
+			});
+				
 			$(function(){
 				mui.plusReady(function(){
 				    //关闭等待框
 				    plus.nativeUI.closeWaiting();
 				    //显示当前页面
 				    mui.currentWebview.show();
-				  });
+				});
+				mui('body').on('shown', '.mui-popover', function(e) {
+					//console.log('shown', e.detail.id);//detail为当前popover元素
+				});
+				mui('body').on('hidden', '.mui-popover', function(e) {
+					//console.log('hidden', e.detail.id);//detail为当前popover元素
+				});
+				
+				mui('body').on('tap', '.mui-popover-action li>a', function() {
+					var a = this,
+						parent;
+					//根据点击按钮，反推当前是哪个actionsheet
+					for (parent = a.parentNode; parent != document.body; parent = parent.parentNode) {
+						if (parent.classList.contains('mui-popover-action')) {
+							break;
+						}
+					}
+					//关闭actionsheet
+					mui('#' + parent.id).popover('toggle');
+					text = a.innerHTML;
+				})
 			})
 		</script>
 	</body>
