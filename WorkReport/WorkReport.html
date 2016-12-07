@@ -22,8 +22,199 @@
 		    <a class="mui-icon mui-pull-right mui-icon-right-nav mui-icon mui-icon-plusempty" id="add" href="NewReport.html"></a>
 		</header>
 		<div class="mui-content">
-		    
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll scroll_tab">
+						<a class="mui-control-item mui-active" href="#item1mobile">
+							<span>
+								日报
+							</span>
+						</a>
+						<a class="mui-control-item" href="#item2mobile">
+							<span>
+								周报
+							</span>
+						</a>
+						<a class="mui-control-item" href="#item3mobile">
+							<span>
+								月报
+							</span>
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="report_lists">
+									<li>
+										<a href="" >
+											<div class="report">
+												王岳伦的日报 2016-11-02
+											</div>
+											<div class="date">
+												2016-11-02
+											</div>
+										</a>
+										<div class="noyue">
+											未阅
+										</span>
+									</li>
+									<li>
+										<a href="">
+											<div class="report">
+												王岳伦的日报 2016-11-01
+											</div>
+											<div class="date">
+												2016-11-01
+											</div>
+										</a>
+										<div class="yue">
+											已阅
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="report_lists">
+									<li>
+										<a href="">
+											<div class="report">
+												王岳伦的周报 2016-11-02
+											</div>
+											<div class="date">
+												2016-11-02
+											</div>
+										</a>
+										<div class="noyue">
+											未阅
+										</span>
+									</li>
+									<li>
+										<a href="">
+											<div class="report">
+												王岳伦的周报 2016-11-01
+											</div>
+											<div class="date">
+												2016-11-01
+											</div>
+										</a>
+										<div class="yue">
+											已阅
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="report_lists">
+									<li>
+										<a href="">
+											<div class="report">
+												王岳伦的月报 2016-11-02
+											</div>
+											<div class="date">
+												2016-11-02
+											</div>
+										</a>
+										<div class="noyue">
+											未阅
+										</span>
+									</li>
+									<li>
+										<a href="">
+											<div class="report">
+												王岳伦的月报 2016-11-01
+											</div>
+											<div class="date">
+												2016-11-01
+											</div>
+										</a>
+										<div class="yue">
+											已阅
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/mui.pullToRefresh.js"></script>
+		<script src="../js/mui.pullToRefresh.material.js"></script>
+		<script>
+			mui.init({
+				swipeBack:false,//启用右滑关闭功能
+				keyEventBind: {
+					backbutton: true  //启动back按键监听
+				}
+			});
+			(function($) {
+				//阻尼系数
+				var deceleration = mui.os.ios?0.003:0.0009;
+				$('.mui-scroll-wrapper').scroll({
+					bounce: false,
+					indicators: true, //是否显示滚动条
+					deceleration:deceleration
+				});
+				$.ready(function() {
+					//循环初始化所有下拉刷新，上拉加载。
+					$.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
+						$(pullRefreshEl).pullToRefresh({
+							down: {
+								callback: function() {
+									var self = this;
+									setTimeout(function() {
+										var ul = self.element.querySelector('.report_lists');
+										ul.insertBefore(createFragment(ul, index, 10, true), ul.firstChild);
+										self.endPullDownToRefresh();
+									}, 1000);
+								}
+							},
+							up: {
+								callback: function() {
+									var self = this;
+									setTimeout(function() {
+										var ul = self.element.querySelector('.report_lists');
+										ul.appendChild(createFragment(ul, index, 5));
+										self.endPullUpToRefresh();
+									}, 1000);
+								}
+							}
+						});
+					});
+					var createFragment = function(ul, index, count, reverse) {
+						var length = ul.querySelectorAll('li').length;
+						var fragment = document.createDocumentFragment();
+						var li;
+						for (var i = 0; i < count; i++) {
+							li = document.createElement('li');
+							li.innerHTML = '第' + (index + 1) + '个选项卡子项-' + (length + (reverse ? (count - i) : (i + 1)));
+							fragment.appendChild(li);
+						}
+						return fragment;
+					};
+				});
+			})(mui);
+			window.onload=function(){
+				//从服务器获取数据
+				
+				mui.plusReady(function(){
+				    //关闭等待框
+				    plus.nativeUI.closeWaiting();
+				    //显示当前页面
+				    mui.currentWebview.show();
+				  });
+			}
+		</script>
 	</body>
 </html>
